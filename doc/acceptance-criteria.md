@@ -20,7 +20,8 @@
 | 提取质量 | `script/verify_extract.py --data resource/steam_text_zhcn` | `OK`（官方 `length` 口径、`plain` 罕见、40 条被覆盖是已知现象） |
 | 结构同构 | `script/align_check.py --game "<游戏目录>"` | 行数 / `(scene,row)` / 页数 / voice id / `char_id` / speaker / 选项全等；名字哈希 102/102 |
 | 不可移植清单 | 同上输出 | 16 脚本 / 5,009 行（其它女主角路线），不进补丁 |
-| 语义抽检 | 抽 `needs_review` 行，从脚本尾部往前取，发现疑点用二分定位 | 无 `offset`；结论与记录见 `doc/version-diff.md` §9、`resource/match/offsets.jsonl` |
+| 语义判据 | 全量校对 `needs_review`（**不是抽样**）：102 脚本 / 12,280 条逐条判定「同一行号两侧是否同一句日文原文」，判定规则与依据见 `doc/version-diff.md` §9 | **全部 `ok`、`offset` 0 处** ⇒ 位置映射成立，`script/writeback.py` 不引入任何偏移逻辑；审计记录 `resource/match/offsets.jsonl`（3 条，全 `no_action`） |
+| 位置映射的真依据 | `resource/match/pairs/*.jsonl` 的 `voice.chs` / `voice.steam`（各侧自身 PSB 同行取值）逐行比对 | 有语音行 10,964 条两侧全等、双侧无语音 12,281 条，**单侧或不等 0 条** ⇒ 按位置回写天然保留民汉自己的「文本↔语音」配对 |
 
 ## 3. 回写与出包
 
@@ -30,7 +31,7 @@
 | 槽位自检 | 同上 | 每页 `length` 内联槽位置与提取结果逐页一致 |
 | 回写覆盖 | `script/writeback.py apply --jobs 8` → `tmp/_report_apply.json` | 23,245 行 + 11 选项；`page_kept_official=10`（民汉残留日文） |
 | 打包自检 | `script/pack_patch.py` | payload 逐字节、adler、页数全通过；条目名哈希 102/102 |
-| 独立复核 | `script/verify_patch.py` | 23,238/23,245 页与期望一致；余 7 页只允许是 `_report_apply.json` 里的已知项（引用宽度 4 页、页对象共享 3 页） |
+| 独立复核 | `script/verify_patch.py` | 23,238/23,245 页与期望一致（`unexpected: 0`）、选项 11/11 为民汉文本；余 7 页只允许是 `_report_apply.json` 里的已知项（引用宽度 4 页、页对象共享 3 页） |
 | 可复跑 | 清空 `tmp/` 后重跑 fetch → apply → pack_patch → verify_patch | ~84 s，产物 md5 不变 |
 | 产物体积 | `releases/CN.xp3` | 1 警告占位 + 1 钩子 + 102 脚本 |
 
@@ -40,6 +41,10 @@
 |---|---|
 | 简中路由 | 语言选「简体中文」进入游戏，剧情文本为民汉译文 |
 | 语音对应 | 共通线 / 纱凪线 / 后日谈各抽 1 段：语音与文本不属于同一行的情况为零 |
+| 后日谈错位区间（本次唯一改变官方行为的段落） | `seアフター_01` row 29–37：`sn7562–sn7567` 逐句跟随民汉文本，无跳行、无一句播两行；末句「先爱上的就算输」随 `sn7567` 显示（定性见 `doc/version-diff.md` §9.1） |
+| 官方缺陷行修复 | `scenario_miu_psp_route01_2_06` row 132 显示民汉句「至少希望我们之间的关系不会破坏社团里的气氛就好……」，上下文连贯（§9.2） |
+| 长行排版 | 抽最长文本行：`scenario_04` r338（72 字）/ r5（69）、`scenario_02` r273（71）/ r201（69）、`scenario_15` r109（71）—— 官方字体下不越框、不遮挡、不二次换行 |
+| 已知残留不误判 | 命中下列行不算缺陷：`ref_width_too_small` 4 页保留官方「欸？」×2、「我也……不知道该怎么做才好了！」×2；`page_ref_shared` 3 页（`scenario_03` r299、`scenario_miu_psp_route01_2_07` r328、`１２月２４日（木）_02（Ｈ１）` r307）；`source_untranslated` 10 行保留官方中文（清单在 `tmp/_report_apply.json`，tmp 清理后由 `script/verify_patch.py` 重新打印） |
 | 存档读写 | 存档、读档、快进与自动播放的节奏正常 |
 | 卸载 | 删除 `CN.xp3` 后官方文本恢复，不需要验证文件完整性 |
 

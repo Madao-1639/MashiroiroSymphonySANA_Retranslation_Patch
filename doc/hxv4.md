@@ -145,3 +145,4 @@ FHD 项目当年的更强判据（与游戏内注入式解包逐字节比对）�
 1. **解包产物命名**：脚本自带 `root["name"]`，产物按 `domain/file_hash` 命名即可；
 2. **验证对齐前提**：`script/align_check.py --game` 逐条断言 `blake2s(utf16le("<script>.scn") + utf16le("xp3hnp"))`存在于游戏 `cn/scn` 域（**102/102 通过**）；
 3. **验证补丁条目名**：把改好的脚本以真名 `<script>.scn` 打进 `CN.xp3`，引擎用同一套哈希去查表。
+4. **语音定位**：同一套 `file_hash` 适用于语音等资源名。本作剧情语音不在 `voice.xp3`（该包 5,268 条目无剧本语音），而在 `patch2.xp3`，条目名 `<voiceid>.ogg`（如 `sn7567.ogg`）；Ogg 时长可纯标准库解析（`vorbis` 后 12 字节采样率 + 最后一页 granule）。
