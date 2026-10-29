@@ -1,57 +1,81 @@
 # 纯白交响曲 SANA EDITION 汉化移植
 
-把【绿茶汉化组】《純白交響曲 SANA EDITION》汉化补丁的剧情文本，移植到 Steam 版
-[《純白交響曲 SANA EDITION》](https://store.steampowered.com/app/2737980/)（appid 2737980），替换官方简体中文内容。
+把【绿茶汉化组×熊喵守护协会&V1.03】的人工汉化文本移植到 Steam 版[《纯白交响曲 SANA EDITION》](https://store.steampowered.com/app/2737980/)，替换官方简体中文内容。
 
 > 本仓库只包含文本移植所需的分析与工具，不包含任何游戏本体文件；补丁仅供已购买正版游戏的用户使用。
-> 姊妹项目：[本篇（Love is Pure White）移植](https://github.com/Madao-1639/MashiroiroSymphonyFHD_Retranslation_Patch)。
+>
+> 平行项目：[FHD 本篇移植](https://github.com/Madao-1639/MashiroiroSymphonyFHD_Retranslation_Patch)。
+
+![Banner](https://shared.steamstatic.com/store_item_assets/steam/apps/2737980/library_hero.jpg)
 
 ---
 
-## 补丁状态
+## 安装 / 卸载 / 更新
 
-**尚未发布**。当前进度：文本提取、两版差异核对、对齐表已完成（见 `doc/version-diff.md`），
-回写与出包（阶段 4）待做。
+**安装**：
+1. 从 [Releases](../../releases) 下载 `CN.xp3`；
+2. 把 `CN.xp3` 复制到游戏安装目录，与 `data.xp3`、`patch.xp3` 同级；
+3. 启动游戏，在语言选择界面选「简体中文」；
+4. 进入游戏即为移植后的文本。
 
-| 项 | 数值 |
-|---|---|
-| 覆盖脚本 | 102（共通线 19 + PSP 美羽线 15 + 纱凪线 60 + 后日谈/日期脚本 8） |
-| 覆盖对白 | 23,245 行 / 11 个选项（= Steam 版全部剧情文本） |
-| 不覆盖 | 界面词条、图像、语音；其它女主角路线（本作没有） |
+游戏目录一般位于 `<Steam 库>\steamapps\common\MashiroiroSymphonySANA`（Steam 库中右键游戏 → 属性 → 已安装文件 → 浏览）。
 
----
+**卸载**：删除游戏目录下的 `CN.xp3`。补丁不改任何官方文件，不需要通过 Steam 验证文件完整性来恢复。
 
-## 前提
-
-游戏必须是**完整版**：安装目录里除 `data.xp3` 外还要有官方 `patch.xp3`（1.10 GB，2024-06 更新）。
-只有 `data.xp3` 时游戏是"路线限定"版本（40 脚本 / 10,496 行），本补丁的脚本集不匹配。
+**更新**：用新版 `CN.xp3` 覆盖旧文件即可。
 
 ---
 
-## 开发
+## 实现原理
 
-```bash
-# 环境：miniforge 的 GalRev（3.11），只用这一个
-mamba run -n GalRev python script/extract_text.py resource  # 见 AGENTS.md 的完整命令
-mamba run -n GalRev python script/verify_extract.py --data resource/steam_text_zhcn
-mamba run -n GalRev python script/align_check.py --game "E:/SteamLibrary/steamapps/common/MashiroiroSymphonySANA"
-mamba run -n GalRev python script/build_pairs.py --out resource/match
+- 两个版本的剧情不是普通文本文件，而是编译过的脚本。对白夹在脚本里，**一句一个字符串**，所以可以按「哪个脚本 → 哪一段场景 → 第几句」精确定位并替换
+- 民汉补丁是明文归档，可直接提取；Steam 版的归档是 Hxv4 加密的，需要先解锁（本作与姊妹项目共用同一套解密参数）
+- 本作剧本分两处：`data.xp3` 只有残缺的 40 个脚本，完整版靠官方 `patch.xp3` 覆盖同名脚本并补齐另外 62 个，因此取文本必须两个归档一起读
+- 回写时脚本里的 `length` 字段（字符计数）需要重算，否则将影响自动播放/快进的节奏
+- 补丁为何能生效：`CN.xp3` 是引擎启动时会自己注册的归档名，钩子在启动流程末尾把 `CN.xp3>cn/scn/` 追加为**最高优先**的搜索路径，于是简中剧情脚本换成移植文本，其余一概不动。
+
+## 已知情况
+
+简中剧情为绿茶汉化组的译文；补丁为**单个新增归档** `CN.xp3`，删除即回滚。
+
+| | 人工汉化补丁 V1.03 | 官方中文 |
+|---|---|---|
+| 脚本 | 118 个 | 102 个 |
+| 对白 | 28,254 条 | 23,245 条 |
+| 选项 | 11 个 | 11 个 |
+
+范围：
+
+- 两边共有的 **102 个脚本**里，对白条数完全一致（23,245 条：逐脚本、逐场景、逐页、语音 id、`char_id`、选项下标全部对得上），可逐句一一对应，不需要重排段落
+- 覆盖 Steam 版**全部**剧情文本：共通线 19 个脚本、纱凪线 60 个、PSP 追加美羽线 15 个、后日谈与日期脚本 8 个（含 H 场景）
+- 汉化补丁**多出**的 16 个脚本（5,009 条）不参与移植：它们是其它女主角路线的碎片，本作没有这些路线
+- 忽略界面词条，只做剧情对白与选项
+
+其他细节：
+
+- 民汉补丁自身有少量未译残留：落在 102 个共同脚本里的 **10 行**仍含日文，这些位置不搬民汉文本，保留官方译文
+- 引号风格不同：民汉用 `「……」`，官方用 `“……”`。以民汉为准，回写时统一
+- 4 页因为字符串引用只有 1 字节宽、放不下新字符串槽，保留官方译文；3 页与相邻行共用同一个页对象（官方把相同页去重），只能写入相邻行的译文。合计 7 页受影响（23,238/23,245 页与预期逐字一致），清单见 `doc/version-diff.md` §8
+- 语义抽检（5 个脚本尾部 100 条）未发现任何行位移，唯一差异是 `scenario_02` 一处切句边界不同且不影响阅读，见 `doc/version-diff.md` §9
+- 与姊妹项目的关系：汉化补丁的 118 个脚本全都被 FHD 本篇补丁包含，两者是同一批译文的超集/子集关系
+
+## 目录结构
+```
+doc/        技术文档（格式规范、文本模型、加密层、引擎机制、判据与守则、两版差异）
+resource/   提取结果与对齐表、Hxv4 参数
+script/     流程脚本（提取 / 对齐 / 回写 / 打包 / 校验）
+tool/       通用库（容器 / 脚本 / PSB / 文本集 / 哈希）
 ```
 
-| 阶段 | 脚本 | 产物 |
-|---|---|---|
-| 1 提取民汉 | `script/extract_text.py <3 个明文 xp3> --out resource/chs_text` | 118 脚本 / 28,254 行 |
-| 2 提取 Steam | `script/extract_text.py data.xp3 patch.xp3 --profile … --domain 9D31BC7A… --out resource/steam_text_zhcn` | 102 脚本 / 23,245 行 |
-| 2 校验 | `script/verify_extract.py`、`script/align_check.py` | 结构同构 + 名字哈希覆盖 |
-| 3 对齐 | `script/build_pairs.py` | `resource/match/pairs/*.jsonl` + `_stats.json` |
+## 反馈
 
-工程约定、目录组织、文档同步要求见 [`AGENTS.md`](AGENTS.md)；技术结论见 [`doc/`](doc/)：
-引擎机制 `engine-mechanics.md`、格式 `file-formats.md`、文本模型 `text-model.md`、加密 `hxv4.md`、
-两版差异 `version-diff.md`、踩坑 `lessons-learned.md`、验收 `acceptance-criteria.md`。
+遇到问题请提交 [Issue](../../issues)，附上：
 
----
+- 补丁版本
+- 出现问题的具体场景（角色线 + 大致进度；最好附上存档文件，位置在游戏安装目录的 `savedata` 文件夹 —— 安装目录可从 Steam 库中右键游戏 →【管理】→【浏览本地文件】进入）
+- 游戏弹出的错误日志（如有）
+- 问题的具体表现（截图或文字描述）
 
 ## 致谢
 
-汉化文本：绿茶汉化组（SANA EDITION 汉化 + `mashiro_sana_cn2.xp3` 补充补丁）
-技术参考：GalgameReverse、YuaExtract、GARbro、FreeMote
+- 汉化文本：绿茶汉化组×熊喵守护协会&V1.03

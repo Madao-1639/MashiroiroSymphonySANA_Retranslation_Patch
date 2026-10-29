@@ -90,8 +90,7 @@ key64 ──DRIP(key64, open_flag)──> 48B 种子状态 ──> 四层 XOR �
 | `data_sana.xp3`（3,799 entry） | 同上 |
 | `patch2.xp3`（22,118 entry） | 同上（其中只有图/音/语音） |
 
-⇒ **不需要为 SANA 重抓参数**（不用启动 x32dbg）。两个发行体的 key/nonce/holder/context/lanes/`hash_domain` 完全相同，
-只有脚本体与目录内容不同。反过来说：**日文原版（非 Steam）仍然打不开**，这与 FHD 项目的结论一致。
+⇒ **不需要为 SANA 重抓参数**（不用启动 x32dbg）。两个发行体的 key/nonce/holder/context/lanes/`hash_domain` 完全相同，只有脚本体与目录内容不同。反过来说：**日文原版（非 Steam）仍然打不开**，这与 FHD 项目的结论一致。
 
 ## 5. 参数获取：只能从运行中的进程读
 
@@ -109,7 +108,8 @@ key64 ──DRIP(key64, open_flag)──> 48B 种子状态 ──> 四层 XOR �
 - 调试器 MCP 端点 `http://127.0.0.1:50301/mcp`，客户端 `tool/x32dbg_mcp.py`；常用工具：`GetAllModulesFromMemMap`、`GetAllRegisters`、`SetBreakpoint`（参数名是 `target` 不是 `address`）、`ReadDismAtAddress`、`FindAllMem`（支持 `??` 通配）、`SearchForStrings`、`run`/`StepInto`/`StepOver`/`StepOut`。
 - 返回的地址/数值是**十进制**（虽然带 `0x` 前缀看起来像十六进制），解析时按十进制读。
 - 没有"读 N 字节"接口：`ReadDismAtAddress` 是唯一取原始字节的途径，按绝对地址把每行反汇编的字节列回填（长指令会截断字节列），实现在 `tool/x32dbg_mcp.py::read_bytes`。
-- 需要从 64 位 Python 调 32 位 DLL 的导出时，`ctypes.WinDLL` 会报 `[WinError 193]`；改用 **32 位 PowerShell**（`C:\Windows\SysWOW64\WindowsPowerShell1.0\powershell.exe`）+ `Add-Type` 现场编译 C# P/Invoke 包装。`GlobalAlloc`/`GlobalLock` 的 `restype` 要声明 `c_void_p`，`PostMessageW`/`SendMessageW` 的 `wParam` 要声明 `c_size_t`。
+- 需要从 64 位 Python 调 32 位 DLL 的导出时，`ctypes.WinDLL` 会报 `[WinError 193]`；改用 **32 位 PowerShell**（`C:\Windows\SysWOW64\WindowsPowerShell
+1.0\powershell.exe`）+ `Add-Type` 现场编译 C# P/Invoke 包装。`GlobalAlloc`/`GlobalLock` 的 `restype` 要声明 `c_void_p`，`PostMessageW`/`SendMessageW` 的 `wParam` 要声明 `c_size_t`。
 
 **静态派生不可信**：从 exe 静态派生出的 key 能把映射表解成合法 TJSON，但**内容全解不开**；其 context 表也与游戏实际使用的不一致（128 条 lane 倒是一致）。实测差异：派生 key `e3fd3f3d…` vs 真值 `95d4af8a…`。
 
@@ -125,15 +125,14 @@ key64 ──DRIP(key64, open_flag)──> 48B 种子状态 ──> 四层 XOR �
 
 | 对象 | 结果 |
 |---|---|
-| `data.xp3` + `patch.xp3`（`cn/scn` 域） | 102 脚本 / 23,245 行 / 11 选项，与注入式路径无必要（全量结构校验见 `script/align_check.py`） |
+| `data.xp3` + `patch.xp3`（`cn/scn` 域） | 102 脚本 / 23,245 行 / 11 选项，解出的脚本全部可解析；结构校验见 `script/align_check.py` |
 | 三域一致性 | `cn`/`tw`/`en` 各 102 脚本 / 23,245 行，逐脚本行数相同 |
 | `data.xp3` 内容类型 | 首 400 entry：PNG 397 / `OggS`（后者在 `data_sana.xp3`）/ PSB / 文本，全部首部合理 |
 | `data_sana.xp3` 内容类型 | 首 400 entry：`OggS` 261、PNG 114、PSB 9（均非 `scenes` 结构） |
 | 其它归档（`evimage` / `voice` / `video` / `patch2`） | PNG / OGG 等首部均可识别 |
 | 映射表绑定不变量 | 每条记录落到唯一条目、除 entry 0 外每个条目都有记录（`_bind_records` 自检通过） |
 
-FHD 项目当年的更强判据（与游戏内注入式解包逐字节比对）在本仓库不重复执行：同一份 `tool/hxv4.py`、同一套参数，
-差异只在归档内容。
+FHD 项目当年的更强判据（与游戏内注入式解包逐字节比对）在本仓库不重复执行：同一份 `tool/hxv4.py`、同一套参数，差异只在归档内容。
 
 ## 8. 名字层（已用于补丁条目命名）
 
@@ -144,6 +143,5 @@ FHD 项目当年的更强判据（与游戏内注入式解包逐字节比对）�
 作用：
 
 1. **解包产物命名**：脚本自带 `root["name"]`，产物按 `domain/file_hash` 命名即可；
-2. **验证对齐前提**：`script/align_check.py --game` 逐条断言 `blake2s(utf16le("<script>.scn") + utf16le("xp3hnp"))`
-   存在于游戏 `cn/scn` 域（**102/102 通过**）；
-3. **验证补丁条目名**（阶段 4）：把改好的脚本以真名 `<script>.scn` 打进 `CN.xp3`，引擎用同一套哈希去查表。
+2. **验证对齐前提**：`script/align_check.py --game` 逐条断言 `blake2s(utf16le("<script>.scn") + utf16le("xp3hnp"))`存在于游戏 `cn/scn` 域（**102/102 通过**）；
+3. **验证补丁条目名**：把改好的脚本以真名 `<script>.scn` 打进 `CN.xp3`，引擎用同一套哈希去查表。

@@ -1,7 +1,8 @@
 __pycache__/
 *.pyc
 tmp/
-releases/
+releases/*
+!releases/README.txt
 
 .mcp.json
 *.local.*

@@ -6,7 +6,7 @@
 |---|---|---|
 | `chs_text/` | 民汉补丁文本提取（**118 脚本 / 28,254 行 / 11 选项**） | `script/extract_text.py` |
 | `steam_text_zhcn/` | Steam 版简中域提取（**102 脚本 / 23,245 行 / 11 选项**） | `script/extract_text.py --profile … --domain 9D31BC7AA367A8F1` |
-| `match/` | 行级对齐 `pairs/<script>.jsonl`（23,245 行）+ `_stats.json` | `script/build_pairs.py` |
+| `match/` | 行级对齐 `pairs/<script>.jsonl`（23,245 行）+ `_stats.json` + `offsets.jsonl`（人工抽检确认的局部差异） | `script/build_pairs.py`；`offsets.jsonl` 人工写入 |
 | `hxv4/profile_live.json` | Hxv4 解密参数（**与 FHD 项目通用**，见 `doc/hxv4.md` §4.1） | 从 FHD 项目复制 |
 
 **布局：一个脚本一个文件**（与归档条目 1:1）
@@ -33,8 +33,7 @@ resource/match/pairs/<script>.jsonl           行级对齐结果
 
 ## steam_text_zhcn/（Steam 官方简体中文）
 
-由 `script/extract_text.py` + `--profile resource/hxv4/profile_live.json --domain 9D31BC7AA367A8F1` 离线提取，
-输入是 **`data.xp3` + `patch.xp3`**（顺序不能反）。
+由 `script/extract_text.py` + `--profile resource/hxv4/profile_live.json --domain 9D31BC7AA367A8F1` 离线提取，输入是 **`data.xp3` + `patch.xp3`**（顺序不能反）。
 
 | 项 | 值 |
 |---|---|
@@ -64,10 +63,27 @@ resource/match/pairs/<script>.jsonl           行级对齐结果
 
 `_stats.json`：`totals` + 每脚本 `{rows, voice_aligned, needs_review}` + `suggested_batches`（11 批约 10 脚本）。
 
+### offsets.jsonl（人工维护，当前 1 条）
+
+语义抽检发现、经人工确认的**局部差异**记录；它不是回写输入，只作为事实留档与后续复核依据。
+
+```json
+{"script":"scenario_02.txt","scene":"*start","pos":429,"row":407,"kind":"merge","delta":0,
+ "first_offset_row":null,"verdict":"no_action","found_by":"tail-sample",
+ "evidence":"Steam 把「晨光透过…五官」并进 row 407；民汉写进 row 408 的长句。无行位移，row 409 的 mc0013 锚点正常"}
+```
+
+| 字段 | 含义 |
+|---|---|
+| `pos` / `row` | 发现位置：`pos` = pairs 文件记录序号（全局唯一），`row` = 场景内行号 |
+| `kind` | `merge` / `split` / `swap` / `offset` / `missing`（`ok` 不入库） |
+| `delta` | 判 `offset` 时的位移（`chs@x ↔ steam@(x+delta)`），其余为 0 |
+| `verdict` | `no_action` / `needs_patch` / `manual_look` |
+| `evidence` | 判据（引用原文片段与锚点） |
+
 ## hxv4/profile_live.json
 
-**唯一的密钥材料**，字段与获取流程见 `doc/hxv4.md` §4 §5。与 FHD 项目的那份**完全相同**，
-对本作 `data.xp3` / `data_sana.xp3` / `patch.xp3` / `patch2.xp3` 全部有效（实测）。
+**唯一的密钥材料**，字段与获取流程见 `doc/hxv4.md` §4 §5。与 FHD 项目的那份**完全相同**，对本作 `data.xp3` / `data_sana.xp3` / `patch.xp3` / `patch2.xp3` 全部有效（实测）。
 **与游戏构建绑定**：游戏更新后必须重抓（用 FHD 项目的 `script/capture_live_crypto.py`）。
 
 > **构建中间物不进本目录**：回写产物、解包结果、打包输入都在 `tmp/`，任务结束清空。

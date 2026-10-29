@@ -9,7 +9,7 @@
 | Steam 主程序 | `mashiro_sana.exe`（4,583,128 B，x86） | `mashiro_fhd.exe`（4,551,896 B） |
 | 民汉主程序 | `mashiro_sana_chs_dl.exe` / `mashiro_sana_chs_pkg.exe`（4,423,168 B）+ `mashiro_sana_chs.dll`（56,320 B） | `mashiro_fhd_chs.exe`（4,392,448 B）+ `.dll` |
 | SteamStub | `.text` 熵 8.00、加密 `.text`、多出 `.bind` | 同 |
-| 引擎修订信息 | 民汉补丁目录里**没有** `enginerev.ini`（FHD 那份是 `Revision 1005 / 2023-06-12`） | 有 |
+| 引擎修订信息 | 民汉补丁目录里**没有** `enginerev.ini`（姊妹项目有，`Revision 1005`） | 有 |
 
 两作是**同一份 krkrz 基础构建**的两个发行体。判据不是 exe 字节相同（不同），而是运行时脚本链的静态一致性：
 把 Steam 侧的 `system/initialize.tjs` 解出来与 FHD 那份逐行 diff，只有标题字符串、语言段顺序、以及被删掉的
@@ -36,7 +36,7 @@ krkrz 指纹：`TVPSelectXP3FileOrFolder`、`TVPCannotFindXP3Mark`、`forcedatax
 ```
 exe
  └─ 根域 startup.tjs（编译字节码，1300 B）
-     └─ Scripts.execStorage("system/Initialize.tjs")   ← 真正的启动脚本（72,544 B，域 system/）
+     └─ Scripts.execStorage("system/Initialize.tjs")   ← 真正的启动脚本（73,032 B，域 system/）
          ├─ addTools("system") / addTools("sysscn")                (:252)
          ├─ subfolders 循环 addArchive(name)                        (:289)
          ├─ Scripts.execStorage("Storages.tjs")                     (:319，官方定制点)
@@ -76,26 +76,26 @@ exe
 | 晚 | `Initialize.tjs:870` | `patch2.xp3>` + 40 余个 `patch2.xp3>voice/…` |
 | 最晚（官方） | `Initialize.tjs:1055–1108` | `scenario2/{ALLAGE,R18}/<lang>/`、`data/<lang>/{scn,scenario,sysscn,main,…}`、`data/patch/<lang>/scn/`、`data.xp3><lang>/scn/`、**`patch.xp3><lang>/scn/`（整条链最后一次）** |
 
-⇒ 对**裸名**剧情脚本（`scenario_01.txt.scn`）而言，官方链的顶端是 `patch.xp3>cn/scn/`；同批里 `data/<lang>/scn/`、`data/patch/<lang>/scn/` 这些**松散目录反而排在前面（更低）**，所以往 `data/patch/CN/scn/` 放文件**不会生效**（2026-10 实测，与"目录写错"无关，是排序问题）。
+⇒ 对**裸名**剧情脚本（`scenario_01.txt.scn`）而言，官方链的顶端是 `patch.xp3>cn/scn/`；同批里 `data/<lang>/scn/`、`data/patch/<lang>/scn/` 这些**松散目录反而排在前面（更低）**，所以往 `data/patch/CN/scn/` 放文件**不会生效**（实测，与"目录写错"无关，是排序问题）。
 
 ### 3.3 名字与域的规范化（否则查不到）
 
 | 项 | 规则 | 判据 |
 |---|---|---|
 | 资源名 | **小写化**后参与哈希（`system/Initialize.tjs` → `initialize.tjs`） | 归档里实际条目名全小写；大写 S 的 `Storages.tjs` 任何归档都查不到，而小写 `storages.tjs` 命中 `main/` 域 |
-| `file_hash` | `BLAKE2s-256(UTF16LE(小写名字) + UTF16LE(盐))`，盐 = 映射表里的 `HashDomain`（本作 `xp3hnp`） | 199/199 脚本名重算一致 |
+| `file_hash` | `BLAKE2s-256(UTF16LE(小写名字) + UTF16LE(盐))`，盐 = 映射表里的 `HashDomain`（本作 `xp3hnp`） | 102/102 脚本名重算一致（`script/align_check.py --game`） |
 | `domain_hash` | `SipHash-2-4(UTF16LE(小写目录 + 盐), key = 16 个 0 字节)`；**根目录 = 只哈希盐** | 实测反查见 §4.1 |
 | 目录写法 | 带结尾 `/`、小写 | `system`（不带 `/`）算出另一个值，对不上 |
 | 前缀来源 | 请求名是**裸名**（`system/` 域的 `StorageData`：`path += storage + ".scn"`），目录前缀只来自 autopath | `tmp/dx_text` 里全项目没有代码拼 `cn/scn/…` |
 
 ### 3.4 不改官方包也能拿到最高优先级（本项目采用的方案）
 
-三条路都试过，只有第三条成立：
+以下载体都拿不到最高优先级，原因是注册时间早于官方链顶端；只有最后一种成立：
 
 | 方案 | 结果 |
 |---|---|
 | 往 `data/patch/CN/scn/`、`data/CN/scn/` 放松散 `.scn` | ✗ 同批内被 `data.xp3><lang>/scn/`、`patch.xp3><lang>/scn/` 压住 |
-| 用 `patch_appendN.xp3` / `patch2.xp3` / `data_fhd.xp3` 当载体 | ✗ 注册时间都早于 `patch.xp3><lang>/scn/`（`data_fhd.xp3` 里的脚本从未生效，已实测） |
+| 用 `patch_appendN.xp3` / `patch2.xp3` / `data_fhd.xp3`（FHD 侧的做法）当载体 | ✗ 注册时间都早于 `patch.xp3><lang>/scn/`（FHD 项目实测 `data_fhd.xp3` 里的脚本从未生效；本作没有该文件） |
 | 自命名归档 `retranslate_zhcn.xp3` | ✗ 名字不在任何注册清单里（exe 无 `*.xp3` 通配） |
 | **`CN.xp3` + 载体钩子**（本项目交付形态） | ✓ 见下 |
 
@@ -114,27 +114,31 @@ exe
 | 项 | FHD 本篇 | 本作 SANA EDITION |
 |---|---|---|
 | 钩子载体基座 | `data.xp3` 的 `main/default.tjs`（25,548 B） | `data.xp3` 的 `main/default.tjs`（**25,398 B**，与 FHD 差 5 行：`System.title`、语言/标题串）；必须用本作的，不得照拄 FHD 的 |
-| 警告占位 entry 0 | 直接从 `data_fhd.xp3` 照拄（有映射记录） | `data.xp3` 的 entry 0 **没有映射记录**（`_bind_records` 的 offset=1 分支），打包时要自己造一条 record，并直接读 `File` 块的 `info`/`segm` 字段（payload 157 B，`fsize=910`，`seg_flags=0`） |
+| 警告占位 entry 0 | 直接从 `data_fhd.xp3` 照抄（有映射记录） | `data.xp3` 的 entry 0 **没有映射记录**（`_bind_records` 的 offset=1 分支），打包时要自己造一条 record，并直接读 `File` 块的 `info`/`segm` 字段（payload 157 B，`fsize=910`，`seg_flags=0`） |
 | 优先级前途 | 官方链顶端 `patch.xp3>cn/scn/` 永命中 | 官方 `patch.xp3` **真实存在**（1.10 GB，102 条脚本）⇒ 钩子必须确认注册时间晚于它；启动后追加的 `CN.xp3>cn/scn/` 满足这一条件 |
 
-另：本作脚本集必须按 **`data.xp3` + `patch.xp3` 两个归档**计算（后者覆盖同名脚本并补齐 62 条），
-只看 `data.xp3` 会得到残缺的 40 脚本集。
+另：本作脚本集必须按 **`data.xp3` + `patch.xp3` 两个归档**计算（后者覆盖同名脚本并补齐 62 条），只看 `data.xp3` 会得到残缺的 40 脚本集。
+
+**已实现**（`script/pack_patch.py`，产物 `releases/CN.xp3` 3.1 MB）：
+
+- 条目 0 = 从官方 `patch.xp3` 的 entry 0 照抄的警告占位（157 B，`fsize=910`，`seg_flags=0`，带映射记录）；
+- 条目 1 = 根域 `default.tjs`，payload = `b"ÿþ"` + 本作 `main/default.tjs` 文本 + `script/patch_hook.tjs`（27,780 B）；
+- 条目 2..103 = `cn/scn/` 域的 102 个脚本，条目名哈希逐条断言；
+- 回读校验：payload 逐字节一致、adler 全通过、页数与索引一致（`pack_patch.py verify`），另有独立闸 `script/verify_patch.py` 从 `resource/` 重建期望逐页比对（23,238/23,245 一致，余 7 页为原位改写的硬限，见 `doc/version-diff.md` §8）。
 
 ### 3.5 已签名包与明文包
 
 `*.sig` 是 RSA-PSS 签名（`-- SIGNATURE - SHA256/PSS/RSA --`）：**不修改已签名原包、只新增未签名包**即可绕过校验风险。
-正式交付只新增 `CN.xp3` 一个文件，不碰 `data.xp3`（1.72 GB）/`patch.xp3`（1.9 GB）/`patch2.xp3`（1.66 GB）。
+正式交付只新增 `CN.xp3` 一个文件，不碰 `data.xp3`（1.71 GB）/`data_sana.xp3`（0.70 GB）/`patch.xp3`（1.10 GB）/`patch2.xp3`（2.09 GB）。
 
 > 补充事实：本作 Steam 版全部归档都是 Hxv4 加密；重建后的包仍必须是 Hxv4（写法见 [hxv4.md](hxv4.md)、
-> `tool/hxv4_write.py`）。把改好的文件打进**明文** xp3 也能被引擎读（日文原版自带明文 `unencrypted.xp3`），
-> 但本作实测明文包在脚本查找链上不占优，故未采用。
+> `tool/hxv4_write.py`）。明文包在脚本查找链上不占优（FHD 项目实测），故本作同样只产出 Hxv4 包。
 
 ### 3.6 patch2.xp3 与脚本无关
 
-本作 `patch2.xp3`（2.09 GB，22,118 entry，2024-06-21）与剧情脚本**没有交集**：其域集合（`81961dcb…`/
+本作 `patch2.xp3`（2.09 GB，22,118 entry）与剧情脚本**没有交集**：其域集合（`81961dcb…`/
 `691498b6…`/`1ad5da71…`/`213d9b94…` 等）与脚本三域零重叠，`cn/scn`/`tw/scn`/`en/scn` 三域 **0 条目**。
-⇒ 脚本提取只需 **`data.xp3` + `patch.xp3`**；`data_sana.xp3`（704 MB / 3,799 entry，全在根域）同样不含剧本，
-其中只有 9 个 PSB 且都不是 `scenes` 结构（UI/配置类）。
+⇒ 脚本提取只需 **`data.xp3` + `patch.xp3`**；`data_sana.xp3`（704 MB / 3,799 entry，全在根域）同样不含剧本，其中只有 9 个 PSB 且都不是 `scenes` 结构（UI/配置类）。
 
 ## 4. 域（`domain_hash`）= 目录哈希，语言只是目录名的一部分
 
@@ -165,9 +169,7 @@ Hxv4 映射表按 `domain_hash`（8 字节）分组，而 `domain_hash` 是**目
 | `9A19D83E…` | 繁体中文 | `「啊！」` / `是否觀看紗凪的後日談？` | 102 | 23,245 |
 | `BB415FD3…` | 英文 | `"Ah!"` / `Read the Sana After Story?` | 102 | 23,245 |
 
-- **三域完全同构**：脚本集、逐脚本行数、页数、`voice` id、`char_id`、选项 `index` 全部相同；
-  只有译文与字符串池下标（`text_idx`）不同 ⇒ 一域上算出的 `(script, scene, row, page)` 对齐可跨域复用，
-  但回写必须用目标域自己的 `text_idx` / `length`（见 `doc/text-model.md` §7.1）。
+- **三域完全同构**：脚本集、逐脚本行数、页数、`voice` id、`char_id`、选项 `index` 全部相同；只有译文与字符串池下标（`text_idx`）不同 ⇒ 一域上算出的 `(script, scene, row, page)` 对齐可跨域复用，但回写必须用目标域自己的 `text_idx` / `length`（见 `doc/text-model.md` §7.1）。
 - 与 FHD 不同，本作三域**没有**“某域多几个脚本”的情况（FHD 的繁中多了 3 个 `seアフター_*`；本作三个域都有这 3 个）。
 - 本项目只保留简中一份产物：`resource/steam_text_zhcn`（需要繁中/英文时同命令换 `--domain` 重提，约 30 秒）。
 - **按域取数要在解密前过滤**：`domain_hash` 在映射表里，先跳过其它域的 entry 再解密，全量提取从十几分钟降到几十秒。
@@ -183,7 +185,7 @@ Hxv4 映射表按 `domain_hash`（8 字节）分组，而 `domain_hash` 是**目
 **不进入移植范围**（我们要的效果是“官方排版 + 民汉文本”，字体替换会改变观感，属于可选衍生）。
 
 > 注：`data.xp3` 的 `main/` 域里**没有** `deffontmap.tjs` / `embfontlist.tjs`（已按名字哈希查过），
-> 说明 Steam 侧的字体映射走的是别处（`lang_*` 通配或 `cn/main/` 语言域）；本项目不需要动它。
+> 本研究不需要触碰字体链，具体映射位置未追查。
 
 ## 6. 操作顺序（做一次文本移植）
 
@@ -195,4 +197,4 @@ Hxv4 映射表按 `domain_hash`（8 字节）分组，而 `domain_hash` 是**目
 | 4 | 提文本：按魔术字节识别脚本，取 `scenes[].texts` / `selects`，按语言域与归档优先级取唯一副本（**本作：`data.xp3` + `patch.xp3`，后传者胜**） | `script/extract_text.py`、`tool/scn.py` |
 | 5 | 校验：零改动往返逐字节一致、`length` 口径、标记数守恒；对齐同构性 | `script/verify_extract.py`、`script/align_check.py` |
 | 6 | 回写：字符串池级重写（数量不变）；要改整数再补完整对象图序列化器 | `tool/psb.py` |
-| 7 | 出包：把改好的脚本按真名打进普通 xp3，覆盖进游戏目录 | [engine-mechanics.md](engine-mechanics.md) §3 |
+| 7 | 出包：把改好的脚本按真名打进 Hxv4 的 `CN.xp3`，放进游戏目录（不覆盖任何官方文件） | 本文 §3.4、`script/pack_patch.py` |

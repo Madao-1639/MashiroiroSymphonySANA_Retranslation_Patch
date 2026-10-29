@@ -1,60 +1,55 @@
-# 验收标准（SANA EDITION）
+# 验收标准
 
-每个阶段结束前必须同时满足：**能复跑的命令通过** + **抽样人工比对** + **文档已更新** + **`tmp/` 已清理**。
-下面每一条都给出可执行的判据；没有命令的条目视为未验收。
+每一条都是**当前必须满足的判据**，格式为「判据 + 命令/依据 + 期望结果」。
+没有命令或文件指针支撑的条目视为未定义，不要写进来。
 
-## 阶段 1：民汉文本提取 ✅（2026-10-29）
+## 1. 民汉文本提取
 
-| 判据 | 命令 | 结果 |
+| 判据 | 命令 | 期望 |
 |---|---|---|
-| 脚本数 / 行数 / 选项数 | `script/extract_text.py <3 个明文 xp3> --out resource/chs_text` | 118 / 28,254 / 11 |
-| 回读一致 | `script/verify_extract.py --data resource/chs_text --source <3 个 xp3>` | `OK` |
-| 后续补丁已合并 | `resource/chs_text/_index.json` 里 3 个脚本的 `container` = `mashiro_sana_cn2.xp3` | ✔ |
-| 抽样 | 随机 10 条看 `speaker` / `scene` / 文本是否合理 | ✔ |
+| 脚本数 / 行数 / 选项数 | `script/extract_text.py <mashiro_sana_chs.xp3> <mashiro_sana_cn2.xp3> <patch.xp3> --out resource/chs_text` | 118 / 28,254 / 11 |
+| 回读一致 | `script/verify_extract.py --data resource/chs_text --source <同样三个 xp3>` | `OK` |
+| 后续补丁已合并 | `resource/chs_text/_index.json` 的 `container` 字段 | 3 个脚本来自 `mashiro_sana_cn2.xp3` |
+| 抽样 | 随机 10 条看 `speaker` / `scene` / 文本 | 与原文一致，控制码未丢 |
 
-## 阶段 2：两版差异与对齐 ✅（2026-10-29）
+## 2. Steam 侧提取与结构核对
 
-| 判据 | 命令 | 结果 |
+| 判据 | 命令 | 期望 |
 |---|---|---|
-| Steam 文本提取 | `script/extract_text.py <data.xp3> <patch.xp3> --profile … --domain 9D31BC7AA367A8F1` | 102 / 23,245 / 11 |
-| 提取质量 | `script/verify_extract.py --data resource/steam_text_zhcn` | `OK`（3 条 WARN 为已知现象：官方 `length` 口径、`plain` 罕见、40 条被覆盖） |
-| **结构同构** | `script/align_check.py --game "<游戏目录>"` | `OK`：行数/`(scene,row)`/页数/voice id/`char_id`/speaker/选项全等；名字哈希 102/102 |
-| 不可移植清单 | 同上输出 | 16 脚本 / 5,009 行（其它女主角路线） |
-| 抽样 | 20 条：同一 `(script, scene, row)` 两侧是同一句的不同译本 | ✔ |
+| 文本提取 | `script/extract_text.py <data.xp3> <patch.xp3> --profile resource/hxv4/profile_live.json --domain 9D31BC7AA367A8F1 --out resource/steam_text_zhcn` | 102 / 23,245 / 11 |
+| 提取质量 | `script/verify_extract.py --data resource/steam_text_zhcn` | `OK`（官方 `length` 口径、`plain` 罕见、40 条被覆盖是已知现象） |
+| 结构同构 | `script/align_check.py --game "<游戏目录>"` | 行数 / `(scene,row)` / 页数 / voice id / `char_id` / speaker / 选项全等；名字哈希 102/102 |
+| 不可移植清单 | 同上输出 | 16 脚本 / 5,009 行（其它女主角路线），不进补丁 |
+| 语义抽检 | 抽 `needs_review` 行，从脚本尾部往前取，发现疑点用二分定位 | 无 `offset`；结论与记录见 `doc/version-diff.md` §9、`resource/match/offsets.jsonl` |
 
-## 阶段 3：对齐表 ✅（2026-10-29）
+## 3. 回写与出包
 
-| 判据 | 命令 | 结果 |
+| 判据 | 命令/依据 | 期望 |
 |---|---|---|
-| 对齐表 | `script/build_pairs.py --out resource/match` | 23,245 行；`aligned` 10,955 / `needs_review` 12,280 / `source_untranslated` 10 |
-| 完整性 | 每脚本 `pairs` 行数 == 该脚本对白行数 | ✔ |
-| 语义抽查 | `needs_review` 行无语音，按 §`resource/README.md` 的抽样口径核对 | 待项目所有者组织 |
+| 零改动往返 | `script/writeback.py roundtrip` | 102/102 脚本 body 逐字节相同；单串 grow/shrink 后仍可解析 |
+| 槽位自检 | 同上 | 每页 `length` 内联槽位置与提取结果逐页一致 |
+| 回写覆盖 | `script/writeback.py apply --jobs 8` → `tmp/_report_apply.json` | 23,245 行 + 11 选项；`page_kept_official=10`（民汉残留日文） |
+| 打包自检 | `script/pack_patch.py` | payload 逐字节、adler、页数全通过；条目名哈希 102/102 |
+| 独立复核 | `script/verify_patch.py` | 23,238/23,245 页与期望一致；余 7 页只允许是 `_report_apply.json` 里的已知项（引用宽度 4 页、页对象共享 3 页） |
+| 可复跑 | 清空 `tmp/` 后重跑 fetch → apply → pack_patch → verify_patch | ~84 s，产物 md5 不变 |
+| 产物体积 | `releases/CN.xp3` | 1 警告占位 + 1 钩子 + 102 脚本 |
 
-> 与 FHD 不同：本阶段不存在"要不要对齐"的判定，只存在"译文质量抽查"，因为结构零差异。
+## 4. 实机
 
-## 阶段 4：回写与出包（未开始）
-
-迁入 FHD 项目的 `script/writeback.py` + `script/pack_patch.py` 后，必须满足：
-
-| 判据 | 说明 |
+| 判据 | 期望 |
 |---|---|
-| 零改动往返 | 不改任何内容重建 PSB body，与原始**逐字节相同** |
-| 单串扰动 | 任选一条文本变长/变短，重建后仍可解析、池内容与预期一致 |
-| 槽位自检 | 每页 `length` 内联槽位置与提取结果逐页一致 |
-| 回写覆盖 | 23,245 行 + 11 选项全部写入；`script/writeback.py verify` 通过 |
-| 补丁包自检 | `CN.xp3` 条目名哈希 102/102 命中游戏 `cn/scn` 域；回读 payload 逐字节相同；adler 正确 |
-| 实机 | 简中语言下开场、共通线、纱凪线、后日谈各抽 1 段，确认文本替换、无乱码、语音对应、存档正常 |
-| 卸载 | 删除 `CN.xp3` 后官方文本恢复 |
+| 简中路由 | 语言选「简体中文」进入游戏，剧情文本为民汉译文 |
+| 语音对应 | 共通线 / 纱凪线 / 后日谈各抽 1 段：语音与文本不属于同一行的情况为零 |
+| 存档读写 | 存档、读档、快进与自动播放的节奏正常 |
+| 卸载 | 删除 `CN.xp3` 后官方文本恢复，不需要验证文件完整性 |
 
-### SANA 专属检查项（FHD 项目没有的）
+## 5. 本作专属前提
 
-1. **钩子载体必须取自本作** `data.xp3` 的 `main/default.tjs`（25,398 B），不得照抄 FHD 的（25,548 B）。
-2. **entry 0 无映射记录**：`CN.xp3` 的警告占位要自己造 record + 直接读 `File` 块字段。
-3. **游戏必须装有官方 `patch.xp3`**：交付说明里要写明；缺它时游戏只有 40 脚本 / 10,496 行（残缺版）。
-4. `data_fhd.xp3` 在本作**不存在**，所有"从 `data_fhd.xp3` 照抄"的做法都要改成本作来源。
+1. 钩子载体取自本作 `data.xp3` 的 `main/default.tjs`（25,398 B），不得用姊妹项目的版本。
+2. 警告占位（entry 0）从官方 `patch.xp3` 的 entry 0 照抄（157 B，`fsize=910`，`seg_flags=0`，带映射记录）——`data.xp3` 的 entry 0 没有映射记录。
+3. 游戏必须装齐官方 `patch.xp3`：缺它时游戏只有 40 脚本 / 10,496 行，与本补丁的脚本集不适配。
 
-## 交付物
+## 6. 交付物
 
-- `releases/CN.xp3`（单文件，卸载 = 删除）
-- `releases/README.txt`（安装/卸载/更新/FAQ；必须写明 `patch.xp3` 前提）
-- 文档：`doc/version-diff.md`、`doc/acceptance-criteria.md` 更新到与产物一致的最终状态
+- `releases/CN.xp3`（单文件；卸载 = 删除）
+- `releases/README.txt`（安装 / 卸载 / 更新 / FAQ，含 `patch.xp3` 前提）
