@@ -1,0 +1,27 @@
+
+// ===== retranslation patch hook (appended) =====
+// Adds exactly one search path after the boot sequence finished:
+//     CN.xp3>cn/scn/     (same shape as Initialize.tjs's own patch.xp3>cn/scn/)
+// Because it is registered last it has the highest priority, so the retranslated
+// scripts under cn/scn/ win over patch.xp3.  Only names inside cn/scn/ are affected;
+// nothing else (config, save data, other assets) is touched.  Uninstall = delete CN.xp3.
+{
+	if (typeof global.__rtHooked == "undefined") {
+		global.__rtHooked = 1;
+		global.__rtN = 0;
+		global.__rtReady = 0;
+		global.__rtTick = function () {
+			if (global.__rtReady == 1) return;
+			global.__rtN = (global.__rtN|0) + 1;
+			var face = "";
+			try { if (typeof global.MessageDefaultFontFace == "string") face = global.MessageDefaultFontFace; } catch (e) { }
+			if (face == "" && (global.__rtN|0) < 300) return;
+			global.__rtReady = 1;
+			// Traditional Chinese (TC) / English (JP face) keep the official text
+			if (face == "" || face.indexOf("SC") >= 0) {
+				try { Storages.addAutoPath(System.exePath + "CN.xp3>cn/scn/"); } catch (e) { }
+			}
+		};
+		try { System.addContinuousHandler(global.__rtTick); } catch (e) { }
+	}
+}

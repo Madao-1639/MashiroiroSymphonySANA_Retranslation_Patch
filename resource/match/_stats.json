@@ -1,0 +1,678 @@
+{
+ "totals": {
+  "aligned": 10955,
+  "needs_review": 12280,
+  "source_untranslated": 10
+ },
+ "scripts": {
+  "scenario_01.txt": {
+   "rows": 221,
+   "voice_aligned": 79,
+   "needs_review": 142
+  },
+  "scenario_02.txt": {
+   "rows": 478,
+   "voice_aligned": 163,
+   "needs_review": 315
+  },
+  "scenario_03.txt": {
+   "rows": 605,
+   "voice_aligned": 216,
+   "needs_review": 389
+  },
+  "scenario_04.txt": {
+   "rows": 628,
+   "voice_aligned": 335,
+   "needs_review": 293
+  },
+  "scenario_05.txt": {
+   "rows": 390,
+   "voice_aligned": 180,
+   "needs_review": 210
+  },
+  "scenario_06.txt": {
+   "rows": 324,
+   "voice_aligned": 138,
+   "needs_review": 186
+  },
+  "scenario_07.txt": {
+   "rows": 193,
+   "voice_aligned": 81,
+   "needs_review": 112
+  },
+  "scenario_08.txt": {
+   "rows": 121,
+   "voice_aligned": 42,
+   "needs_review": 79
+  },
+  "scenario_09.txt": {
+   "rows": 117,
+   "voice_aligned": 70,
+   "needs_review": 47
+  },
+  "scenario_10.txt": {
+   "rows": 65,
+   "voice_aligned": 28,
+   "needs_review": 37
+  },
+  "scenario_11.txt": {
+   "rows": 152,
+   "voice_aligned": 78,
+   "needs_review": 74
+  },
+  "scenario_12.txt": {
+   "rows": 507,
+   "voice_aligned": 205,
+   "needs_review": 302
+  },
+  "scenario_13.txt": {
+   "rows": 214,
+   "voice_aligned": 107,
+   "needs_review": 107
+  },
+  "scenario_14.txt": {
+   "rows": 111,
+   "voice_aligned": 61,
+   "needs_review": 50
+  },
+  "scenario_15.txt": {
+   "rows": 158,
+   "voice_aligned": 82,
+   "needs_review": 76
+  },
+  "scenario_16.txt": {
+   "rows": 28,
+   "voice_aligned": 11,
+   "needs_review": 17
+  },
+  "scenario_17.txt": {
+   "rows": 25,
+   "voice_aligned": 16,
+   "needs_review": 9
+  },
+  "scenario_18.txt": {
+   "rows": 16,
+   "voice_aligned": 11,
+   "needs_review": 5
+  },
+  "scenario_19.txt": {
+   "rows": 80,
+   "voice_aligned": 57,
+   "needs_review": 23
+  },
+  "scenario_miu_psp_route01_01.txt": {
+   "rows": 317,
+   "voice_aligned": 127,
+   "needs_review": 190
+  },
+  "scenario_miu_psp_route01_02.txt": {
+   "rows": 326,
+   "voice_aligned": 147,
+   "needs_review": 179
+  },
+  "scenario_miu_psp_route01_03.txt": {
+   "rows": 582,
+   "voice_aligned": 262,
+   "needs_review": 320
+  },
+  "scenario_miu_psp_route01_04.txt": {
+   "rows": 453,
+   "voice_aligned": 250,
+   "needs_review": 203
+  },
+  "scenario_miu_psp_route01_05.txt": {
+   "rows": 238,
+   "voice_aligned": 110,
+   "needs_review": 128
+  },
+  "scenario_miu_psp_route01_06.txt": {
+   "rows": 180,
+   "voice_aligned": 111,
+   "needs_review": 69
+  },
+  "scenario_miu_psp_route01_07.txt": {
+   "rows": 356,
+   "voice_aligned": 163,
+   "needs_review": 193
+  },
+  "scenario_miu_psp_route01_2_01.txt": {
+   "rows": 376,
+   "voice_aligned": 181,
+   "needs_review": 195
+  },
+  "scenario_miu_psp_route01_2_02.txt": {
+   "rows": 334,
+   "voice_aligned": 180,
+   "needs_review": 154
+  },
+  "scenario_miu_psp_route01_2_03.txt": {
+   "rows": 461,
+   "voice_aligned": 282,
+   "needs_review": 179
+  },
+  "scenario_miu_psp_route01_2_04.txt": {
+   "rows": 274,
+   "voice_aligned": 153,
+   "needs_review": 121
+  },
+  "scenario_miu_psp_route01_2_05.txt": {
+   "rows": 127,
+   "voice_aligned": 41,
+   "needs_review": 86
+  },
+  "scenario_miu_psp_route01_2_06.txt": {
+   "rows": 203,
+   "voice_aligned": 103,
+   "needs_review": 100
+  },
+  "scenario_miu_psp_route01_2_07.txt": {
+   "rows": 393,
+   "voice_aligned": 241,
+   "needs_review": 152
+  },
+  "scenario_miu_psp_route01_2_08.txt": {
+   "rows": 57,
+   "voice_aligned": 37,
+   "needs_review": 20
+  },
+  "scenario_sana_route01_01.txt": {
+   "rows": 234,
+   "voice_aligned": 91,
+   "needs_review": 143
+  },
+  "scenario_sana_route01_02.txt": {
+   "rows": 706,
+   "voice_aligned": 418,
+   "needs_review": 288
+  },
+  "scenario_sana_route01_03.txt": {
+   "rows": 129,
+   "voice_aligned": 66,
+   "needs_review": 63
+  },
+  "scenario_sana_route01_04.txt": {
+   "rows": 357,
+   "voice_aligned": 178,
+   "needs_review": 179
+  },
+  "scenario_sana_route02_01.txt": {
+   "rows": 293,
+   "voice_aligned": 160,
+   "needs_review": 133
+  },
+  "scenario_sana_route02_02.txt": {
+   "rows": 255,
+   "voice_aligned": 124,
+   "needs_review": 131
+  },
+  "scenario_sana_route02_03.txt": {
+   "rows": 368,
+   "voice_aligned": 185,
+   "needs_review": 183
+  },
+  "scenario_sana_route02_04.txt": {
+   "rows": 204,
+   "voice_aligned": 123,
+   "needs_review": 81
+  },
+  "scenario_sana_route02_05.txt": {
+   "rows": 264,
+   "voice_aligned": 137,
+   "needs_review": 127
+  },
+  "scenario_sana_route02_06.txt": {
+   "rows": 180,
+   "voice_aligned": 91,
+   "needs_review": 89
+  },
+  "scenario_sana_route03_01.txt": {
+   "rows": 286,
+   "voice_aligned": 131,
+   "needs_review": 155
+  },
+  "scenario_sana_route03_02.txt": {
+   "rows": 190,
+   "voice_aligned": 95,
+   "needs_review": 95
+  },
+  "scenario_sana_route03_03.txt": {
+   "rows": 299,
+   "voice_aligned": 167,
+   "needs_review": 132
+  },
+  "scenario_sana_route03_04.txt": {
+   "rows": 110,
+   "voice_aligned": 57,
+   "needs_review": 53
+  },
+  "scenario_sana_route03_05.txt": {
+   "rows": 262,
+   "voice_aligned": 119,
+   "needs_review": 143
+  },
+  "scenario_sana_route03_06.txt": {
+   "rows": 303,
+   "voice_aligned": 150,
+   "needs_review": 153
+  },
+  "scenario_sana_route04_01.txt": {
+   "rows": 221,
+   "voice_aligned": 89,
+   "needs_review": 132
+  },
+  "scenario_sana_route04_02.txt": {
+   "rows": 417,
+   "voice_aligned": 164,
+   "needs_review": 253
+  },
+  "scenario_sana_route04_03.txt": {
+   "rows": 125,
+   "voice_aligned": 53,
+   "needs_review": 72
+  },
+  "scenario_sana_route04_04.txt": {
+   "rows": 185,
+   "voice_aligned": 81,
+   "needs_review": 104
+  },
+  "scenario_sana_route04_05.txt": {
+   "rows": 184,
+   "voice_aligned": 99,
+   "needs_review": 85
+  },
+  "scenario_sana_route04_06.txt": {
+   "rows": 110,
+   "voice_aligned": 54,
+   "needs_review": 56
+  },
+  "scenario_sana_route04_07.txt": {
+   "rows": 296,
+   "voice_aligned": 120,
+   "needs_review": 176
+  },
+  "scenario_sana_route05_01.txt": {
+   "rows": 134,
+   "voice_aligned": 73,
+   "needs_review": 61
+  },
+  "scenario_sana_route05_02.txt": {
+   "rows": 112,
+   "voice_aligned": 39,
+   "needs_review": 73
+  },
+  "scenario_sana_route05_03.txt": {
+   "rows": 103,
+   "voice_aligned": 46,
+   "needs_review": 57
+  },
+  "scenario_sana_route05_04.txt": {
+   "rows": 151,
+   "voice_aligned": 79,
+   "needs_review": 72
+  },
+  "scenario_sana_route05_05.txt": {
+   "rows": 191,
+   "voice_aligned": 90,
+   "needs_review": 101
+  },
+  "scenario_sana_route05_06.txt": {
+   "rows": 116,
+   "voice_aligned": 50,
+   "needs_review": 66
+  },
+  "scenario_sana_route05_07.txt": {
+   "rows": 102,
+   "voice_aligned": 29,
+   "needs_review": 73
+  },
+  "scenario_sana_route05_08.txt": {
+   "rows": 117,
+   "voice_aligned": 51,
+   "needs_review": 66
+  },
+  "scenario_sana_route05_09.txt": {
+   "rows": 57,
+   "voice_aligned": 25,
+   "needs_review": 32
+  },
+  "scenario_sana_route05_10.txt": {
+   "rows": 94,
+   "voice_aligned": 55,
+   "needs_review": 39
+  },
+  "scenario_sana_route06_01.txt": {
+   "rows": 101,
+   "voice_aligned": 46,
+   "needs_review": 55
+  },
+  "scenario_sana_route06_02.txt": {
+   "rows": 208,
+   "voice_aligned": 106,
+   "needs_review": 102
+  },
+  "scenario_sana_route06_03.txt": {
+   "rows": 430,
+   "voice_aligned": 180,
+   "needs_review": 250
+  },
+  "scenario_sana_route06_04.txt": {
+   "rows": 118,
+   "voice_aligned": 41,
+   "needs_review": 77
+  },
+  "scenario_sana_route06_05.txt": {
+   "rows": 92,
+   "voice_aligned": 46,
+   "needs_review": 46
+  },
+  "scenario_sana_route06_06.txt": {
+   "rows": 96,
+   "voice_aligned": 35,
+   "needs_review": 61
+  },
+  "scenario_sana_route06_07.txt": {
+   "rows": 100,
+   "voice_aligned": 35,
+   "needs_review": 65
+  },
+  "scenario_sana_route06_08.txt": {
+   "rows": 168,
+   "voice_aligned": 61,
+   "needs_review": 107
+  },
+  "scenario_sana_route06_09.txt": {
+   "rows": 110,
+   "voice_aligned": 35,
+   "needs_review": 75
+  },
+  "scenario_sana_route06_10.txt": {
+   "rows": 349,
+   "voice_aligned": 108,
+   "needs_review": 241
+  },
+  "scenario_sana_route06_11.txt": {
+   "rows": 107,
+   "voice_aligned": 46,
+   "needs_review": 61
+  },
+  "scenario_sana_route07_01.txt": {
+   "rows": 112,
+   "voice_aligned": 53,
+   "needs_review": 59
+  },
+  "scenario_sana_route07_02.txt": {
+   "rows": 103,
+   "voice_aligned": 52,
+   "needs_review": 51
+  },
+  "scenario_sana_route07_03.txt": {
+   "rows": 325,
+   "voice_aligned": 151,
+   "needs_review": 174
+  },
+  "scenario_sana_route07_04.txt": {
+   "rows": 44,
+   "voice_aligned": 38,
+   "needs_review": 6
+  },
+  "scenario_sana_route07_05.txt": {
+   "rows": 76,
+   "voice_aligned": 35,
+   "needs_review": 41
+  },
+  "scenario_sana_route07_06.txt": {
+   "rows": 131,
+   "voice_aligned": 75,
+   "needs_review": 56
+  },
+  "scenario_sana_route07_07.txt": {
+   "rows": 131,
+   "voice_aligned": 34,
+   "needs_review": 97
+  },
+  "scenario_sana_route07_08.txt": {
+   "rows": 164,
+   "voice_aligned": 72,
+   "needs_review": 92
+  },
+  "scenario_sana_route07_09.txt": {
+   "rows": 116,
+   "voice_aligned": 49,
+   "needs_review": 67
+  },
+  "scenario_sana_route07_10.txt": {
+   "rows": 358,
+   "voice_aligned": 153,
+   "needs_review": 205
+  },
+  "scenario_sana_route08_01.txt": {
+   "rows": 159,
+   "voice_aligned": 103,
+   "needs_review": 56
+  },
+  "scenario_sana_route08_02.txt": {
+   "rows": 263,
+   "voice_aligned": 180,
+   "needs_review": 83
+  },
+  "scenario_sana_route08_03.txt": {
+   "rows": 81,
+   "voice_aligned": 69,
+   "needs_review": 12
+  },
+  "scenario_sana_route08_04.txt": {
+   "rows": 73,
+   "voice_aligned": 41,
+   "needs_review": 32
+  },
+  "scenario_sana_route08_05.txt": {
+   "rows": 111,
+   "voice_aligned": 54,
+   "needs_review": 57
+  },
+  "scenario_sana_route08_06.txt": {
+   "rows": 228,
+   "voice_aligned": 99,
+   "needs_review": 129
+  },
+  "seアフター_01.txt": {
+   "rows": 378,
+   "voice_aligned": 161,
+   "needs_review": 217
+  },
+  "seアフター_02（Ｈ３）.txt": {
+   "rows": 522,
+   "voice_aligned": 217,
+   "needs_review": 305
+  },
+  "seアフター_03.txt": {
+   "rows": 185,
+   "voice_aligned": 73,
+   "needs_review": 112
+  },
+  "年明け２月０９日（火）_01.txt": {
+   "rows": 309,
+   "voice_aligned": 143,
+   "needs_review": 166
+  },
+  "年明け２月１４日（日）_04（Ｈ２）.txt": {
+   "rows": 474,
+   "voice_aligned": 214,
+   "needs_review": 260
+  },
+  "年明け２月１４日（日）_05.txt": {
+   "rows": 87,
+   "voice_aligned": 40,
+   "needs_review": 47
+  },
+  "１２月２４日（木）_02（Ｈ１）.txt": {
+   "rows": 587,
+   "voice_aligned": 231,
+   "needs_review": 356
+  },
+  "１２月２４日（木）_03.txt": {
+   "rows": 84,
+   "voice_aligned": 42,
+   "needs_review": 42
+  }
+ },
+ "suggested_batches": [
+  {
+   "scripts": [
+    "scenario_03.txt",
+    "１２月２４日（木）_02（Ｈ１）.txt",
+    "scenario_miu_psp_route01_03.txt",
+    "scenario_02.txt",
+    "seアフター_02（Ｈ３）.txt",
+    "scenario_12.txt",
+    "scenario_04.txt",
+    "scenario_sana_route01_02.txt",
+    "年明け２月１４日（日）_04（Ｈ２）.txt",
+    "scenario_sana_route04_02.txt"
+   ],
+   "needs_review": 3081
+  },
+  {
+   "scripts": [
+    "scenario_sana_route06_03.txt",
+    "scenario_sana_route06_10.txt",
+    "seアフター_01.txt",
+    "scenario_05.txt",
+    "scenario_sana_route07_10.txt",
+    "scenario_miu_psp_route01_04.txt",
+    "scenario_miu_psp_route01_2_01.txt",
+    "scenario_miu_psp_route01_07.txt",
+    "scenario_miu_psp_route01_01.txt",
+    "scenario_06.txt"
+   ],
+   "needs_review": 2090
+  },
+  {
+   "scripts": [
+    "scenario_sana_route02_03.txt",
+    "scenario_miu_psp_route01_02.txt",
+    "scenario_miu_psp_route01_2_03.txt",
+    "scenario_sana_route01_04.txt",
+    "scenario_sana_route04_07.txt",
+    "scenario_sana_route07_03.txt",
+    "年明け２月０９日（火）_01.txt",
+    "scenario_sana_route03_01.txt",
+    "scenario_miu_psp_route01_2_02.txt",
+    "scenario_sana_route03_06.txt"
+   ],
+   "needs_review": 1698
+  },
+  {
+   "scripts": [
+    "scenario_miu_psp_route01_2_07.txt",
+    "scenario_sana_route01_01.txt",
+    "scenario_sana_route03_05.txt",
+    "scenario_01.txt",
+    "scenario_sana_route02_01.txt",
+    "scenario_sana_route03_03.txt",
+    "scenario_sana_route04_01.txt",
+    "scenario_sana_route02_02.txt",
+    "scenario_sana_route08_06.txt",
+    "scenario_miu_psp_route01_05.txt"
+   ],
+   "needs_review": 1365
+  },
+  {
+   "scripts": [
+    "scenario_sana_route02_05.txt",
+    "scenario_miu_psp_route01_2_04.txt",
+    "scenario_07.txt",
+    "seアフター_03.txt",
+    "scenario_13.txt",
+    "scenario_sana_route06_08.txt",
+    "scenario_sana_route04_04.txt",
+    "scenario_sana_route06_02.txt",
+    "scenario_sana_route05_05.txt",
+    "scenario_miu_psp_route01_2_06.txt"
+   ],
+   "needs_review": 1093
+  },
+  {
+   "scripts": [
+    "scenario_sana_route07_07.txt",
+    "scenario_sana_route03_02.txt",
+    "scenario_sana_route07_08.txt",
+    "scenario_sana_route02_06.txt",
+    "scenario_miu_psp_route01_2_05.txt",
+    "scenario_sana_route04_05.txt",
+    "scenario_sana_route08_02.txt",
+    "scenario_sana_route02_04.txt",
+    "scenario_08.txt",
+    "scenario_sana_route06_04.txt"
+   ],
+   "needs_review": 864
+  },
+  {
+   "scripts": [
+    "scenario_15.txt",
+    "scenario_sana_route06_09.txt",
+    "scenario_11.txt",
+    "scenario_sana_route05_02.txt",
+    "scenario_sana_route05_07.txt",
+    "scenario_sana_route04_03.txt",
+    "scenario_sana_route05_04.txt",
+    "scenario_miu_psp_route01_06.txt",
+    "scenario_sana_route07_09.txt",
+    "scenario_sana_route05_06.txt"
+   ],
+   "needs_review": 717
+  },
+  {
+   "scripts": [
+    "scenario_sana_route05_08.txt",
+    "scenario_sana_route06_07.txt",
+    "scenario_sana_route01_03.txt",
+    "scenario_sana_route05_01.txt",
+    "scenario_sana_route06_06.txt",
+    "scenario_sana_route06_11.txt",
+    "scenario_sana_route07_01.txt",
+    "scenario_sana_route05_03.txt",
+    "scenario_sana_route08_05.txt",
+    "scenario_sana_route04_06.txt"
+   ],
+   "needs_review": 606
+  },
+  {
+   "scripts": [
+    "scenario_sana_route07_06.txt",
+    "scenario_sana_route08_01.txt",
+    "scenario_sana_route06_01.txt",
+    "scenario_sana_route03_04.txt",
+    "scenario_sana_route07_02.txt",
+    "scenario_14.txt",
+    "scenario_09.txt",
+    "年明け２月１４日（日）_05.txt",
+    "scenario_sana_route06_05.txt",
+    "１２月２４日（木）_03.txt"
+   ],
+   "needs_review": 503
+  },
+  {
+   "scripts": [
+    "scenario_sana_route07_05.txt",
+    "scenario_sana_route05_10.txt",
+    "scenario_10.txt",
+    "scenario_sana_route05_09.txt",
+    "scenario_sana_route08_04.txt",
+    "scenario_19.txt",
+    "scenario_miu_psp_route01_2_08.txt",
+    "scenario_16.txt",
+    "scenario_sana_route08_03.txt",
+    "scenario_17.txt"
+   ],
+   "needs_review": 262
+  },
+  {
+   "scripts": [
+    "scenario_sana_route07_04.txt",
+    "scenario_18.txt"
+   ],
+   "needs_review": 11
+  }
+ ]
+}

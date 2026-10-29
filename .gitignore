@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+tmp/
+releases/
+
+.mcp.json
+*.local.*
+.pi
+.zcode*
+.workbuddy*

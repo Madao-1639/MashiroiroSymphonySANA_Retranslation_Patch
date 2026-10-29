@@ -1,0 +1,1716 @@
+{
+ "domains": {
+  "": 118
+ },
+ "duplicate_copies": [],
+ "scripts": {
+  "scenario_01.txt": {
+   "arcname": "scenario_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "763c2c86d66a0915eed256e95fb1dd42",
+   "length_mismatch": 0,
+   "messages": 221,
+   "missing_plain": 133,
+   "pages": 221,
+   "scenes": [
+    "*start",
+    "*sana",
+    "*sana_after_select",
+    "*dummyselect1",
+    "*normal",
+    "*dummy1"
+   ],
+   "selects": 2
+  },
+  "scenario_02.txt": {
+   "arcname": "scenario_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "2f8d893ef34b7a827744718cfee0f2a1",
+   "length_mismatch": 0,
+   "messages": 478,
+   "missing_plain": 264,
+   "pages": 478,
+   "scenes": [
+    "*start",
+    "*dummy1",
+    "*sana",
+    "*dummyselect1",
+    "*yes",
+    "*no",
+    "*conf"
+   ],
+   "selects": 0
+  },
+  "scenario_03.txt": {
+   "arcname": "scenario_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "1a91d959563486de868b1026535ed0cd",
+   "length_mismatch": 0,
+   "messages": 605,
+   "missing_plain": 340,
+   "pages": 605,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_04.txt": {
+   "arcname": "scenario_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "0cd8f71e9f14c1e5636bac813c9c9496",
+   "length_mismatch": 0,
+   "messages": 628,
+   "missing_plain": 342,
+   "pages": 628,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_05.txt": {
+   "arcname": "scenario_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "1df40ba151f269e4b0f6ea3bbb612ad9",
+   "length_mismatch": 0,
+   "messages": 390,
+   "missing_plain": 213,
+   "pages": 390,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_06.txt": {
+   "arcname": "scenario_06.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "eedf87d30f0a7e91bae9334343479ff2",
+   "length_mismatch": 0,
+   "messages": 324,
+   "missing_plain": 191,
+   "pages": 324,
+   "scenes": [
+    "*start",
+    "*dummyselect1",
+    "*prologue01",
+    "*prologue02",
+    "*prologue03"
+   ],
+   "selects": 2
+  },
+  "scenario_07.txt": {
+   "arcname": "scenario_07.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "c506c4103bb11c619f1fb0a0ac6ca9a5",
+   "length_mismatch": 0,
+   "messages": 193,
+   "missing_plain": 143,
+   "pages": 193,
+   "scenes": [
+    "*start",
+    "*dummyselect1",
+    "*prologue04",
+    "*prologue05",
+    "*prologue06"
+   ],
+   "selects": 2
+  },
+  "scenario_08.txt": {
+   "arcname": "scenario_08.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "910bc8aaa5cd1402a513fb86058779b5",
+   "length_mismatch": 0,
+   "messages": 121,
+   "missing_plain": 89,
+   "pages": 121,
+   "scenes": [
+    "*start",
+    "*dummyselect1",
+    "*prologue07",
+    "*prologue08",
+    "*prologue09"
+   ],
+   "selects": 2
+  },
+  "scenario_09.txt": {
+   "arcname": "scenario_09.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "98b97854714b9b7c2ae184a22ec2d09c",
+   "length_mismatch": 0,
+   "messages": 117,
+   "missing_plain": 70,
+   "pages": 117,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_10.txt": {
+   "arcname": "scenario_10.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "9e903a9f3981ea455b397c0ad4f5bcee",
+   "length_mismatch": 0,
+   "messages": 65,
+   "missing_plain": 40,
+   "pages": 65,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_11.txt": {
+   "arcname": "scenario_11.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "7a22711d411e07965148f54be75cd93e",
+   "length_mismatch": 0,
+   "messages": 152,
+   "missing_plain": 91,
+   "pages": 152,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_12.txt": {
+   "arcname": "scenario_12.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "72cd9836da9db06bd51e8818db0e268c",
+   "length_mismatch": 0,
+   "messages": 507,
+   "missing_plain": 328,
+   "pages": 507,
+   "scenes": [
+    "*start",
+    "*dummyselect1",
+    "*prologue10",
+    "*prologue11",
+    "*prologue12",
+    "*prologue13"
+   ],
+   "selects": 3
+  },
+  "scenario_13.txt": {
+   "arcname": "scenario_13.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "4b7308f7ce4f313a2c218b9cdb10bb95",
+   "length_mismatch": 0,
+   "messages": 214,
+   "missing_plain": 137,
+   "pages": 214,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_14.txt": {
+   "arcname": "scenario_14.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "d47b0e8f8b119c9fe96b104e1969844d",
+   "length_mismatch": 0,
+   "messages": 111,
+   "missing_plain": 55,
+   "pages": 111,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_15.txt": {
+   "arcname": "scenario_15.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "03734c6ac2478506c2c30c64461d2d16",
+   "length_mismatch": 0,
+   "messages": 158,
+   "missing_plain": 81,
+   "pages": 158,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_16.txt": {
+   "arcname": "scenario_16.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "723209612ec6c7d119fbf607b77c582a",
+   "length_mismatch": 0,
+   "messages": 28,
+   "missing_plain": 14,
+   "pages": 28,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_17.txt": {
+   "arcname": "scenario_17.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "bd04a702c96d8596f6368e5150974831",
+   "length_mismatch": 0,
+   "messages": 25,
+   "missing_plain": 12,
+   "pages": 25,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_18.txt": {
+   "arcname": "scenario_18.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "a1a85debc5b736025e808ec0542edc93",
+   "length_mismatch": 0,
+   "messages": 16,
+   "missing_plain": 8,
+   "pages": 16,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_19.txt": {
+   "arcname": "scenario_19.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "fc064cfae410e186691910074ad4c5c7",
+   "length_mismatch": 0,
+   "messages": 80,
+   "missing_plain": 60,
+   "pages": 80,
+   "scenes": [
+    "*start",
+    "*agroute_hantei1",
+    "*prologue14",
+    "*route_hantei2",
+    "*hantei3",
+    "*route_hantei4",
+    "*ar_route",
+    "*ag_route",
+    "*mu_route",
+    "*sk_route"
+   ],
+   "selects": 0
+  },
+  "scenario_airi_route01_01.txt": {
+   "arcname": "scenario_airi_route01_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "48df89cb3405438b6a19264fd9c5608f",
+   "length_mismatch": 0,
+   "messages": 541,
+   "missing_plain": 345,
+   "pages": 541,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_airi_route01_09.txt": {
+   "arcname": "scenario_airi_route01_09.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "3ef2cf1c01cdb68fc2a6c7a333d7ddca",
+   "length_mismatch": 0,
+   "messages": 297,
+   "missing_plain": 207,
+   "pages": 297,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_airi_route01_17.txt": {
+   "arcname": "scenario_airi_route01_17.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "8a86254fe7c3f6323cd39382328d7f21",
+   "length_mismatch": 0,
+   "messages": 386,
+   "missing_plain": 292,
+   "pages": 386,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_airi_route01_23.txt": {
+   "arcname": "scenario_airi_route01_23.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "e82f77cca6d188761a5ffd4ed24fc844",
+   "length_mismatch": 0,
+   "messages": 474,
+   "missing_plain": 349,
+   "pages": 474,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_ange_route01_01.txt": {
+   "arcname": "scenario_ange_route01_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "7cca438017bf06a8ee848dee2c48a899",
+   "length_mismatch": 0,
+   "messages": 240,
+   "missing_plain": 147,
+   "pages": 240,
+   "scenes": [
+    "*start",
+    "*start2"
+   ],
+   "selects": 0
+  },
+  "scenario_ange_route01_02.txt": {
+   "arcname": "scenario_ange_route01_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "1ddf82325ed2c49366660b7ce02bfe02",
+   "length_mismatch": 0,
+   "messages": 156,
+   "missing_plain": 96,
+   "pages": 156,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_ange_route01_03.txt": {
+   "arcname": "scenario_ange_route01_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "7ce088bb28ec136637f826aeae44a3bb",
+   "length_mismatch": 0,
+   "messages": 157,
+   "missing_plain": 110,
+   "pages": 157,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_ange_route01_04.txt": {
+   "arcname": "scenario_ange_route01_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "4b1e9dc656112b880271ec07de2255cf",
+   "length_mismatch": 0,
+   "messages": 330,
+   "missing_plain": 215,
+   "pages": 330,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_ange_route01_05.txt": {
+   "arcname": "scenario_ange_route01_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "976d9932785ced7d8ea6001a035ff06d",
+   "length_mismatch": 0,
+   "messages": 129,
+   "missing_plain": 92,
+   "pages": 129,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_ange_route01_06.txt": {
+   "arcname": "scenario_ange_route01_06.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "82015664110cafa53a26d01c0d4c9ba4",
+   "length_mismatch": 0,
+   "messages": 244,
+   "missing_plain": 128,
+   "pages": 244,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_ange_route01_07.txt": {
+   "arcname": "scenario_ange_route01_07.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "2df365ad170e1d19c4e7f6b58e873c0a",
+   "length_mismatch": 0,
+   "messages": 453,
+   "missing_plain": 315,
+   "pages": 453,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_ange_route01_08.txt": {
+   "arcname": "scenario_ange_route01_08.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "f0200f7b4a12210d093c754626f86163",
+   "length_mismatch": 0,
+   "messages": 388,
+   "missing_plain": 248,
+   "pages": 388,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_ange_route01_17.txt": {
+   "arcname": "scenario_ange_route01_17.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "ff2524768b417ee1996841b3459301c7",
+   "length_mismatch": 0,
+   "messages": 206,
+   "missing_plain": 129,
+   "pages": 206,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_ange_route01_19.txt": {
+   "arcname": "scenario_ange_route01_19.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "1642517eb78bcd7e17c25d8df54ae12c",
+   "length_mismatch": 0,
+   "messages": 327,
+   "missing_plain": 233,
+   "pages": 327,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_ange_route02_10.txt": {
+   "arcname": "scenario_ange_route02_10.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "0e523f0e6326e6efaf057630fd709d78",
+   "length_mismatch": 0,
+   "messages": 190,
+   "missing_plain": 122,
+   "pages": 190,
+   "scenes": [
+    "*start",
+    "*check_mu2",
+    "*check_sk2",
+    "*check_clear2",
+    "*ag_clear"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_01.txt": {
+   "arcname": "scenario_miu_psp_route01_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "5e03dadc298286bbdc57a1e6a3f22374",
+   "length_mismatch": 0,
+   "messages": 317,
+   "missing_plain": 265,
+   "pages": 317,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_02.txt": {
+   "arcname": "scenario_miu_psp_route01_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "7e052692cd95d31b721251abd9866854",
+   "length_mismatch": 0,
+   "messages": 326,
+   "missing_plain": 249,
+   "pages": 326,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_03.txt": {
+   "arcname": "scenario_miu_psp_route01_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "b0742018a95d882dbf0b0966267c1ec1",
+   "length_mismatch": 0,
+   "messages": 582,
+   "missing_plain": 439,
+   "pages": 582,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_04.txt": {
+   "arcname": "scenario_miu_psp_route01_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "f9cf37d2ec02256d105be2060610151f",
+   "length_mismatch": 0,
+   "messages": 453,
+   "missing_plain": 325,
+   "pages": 453,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_05.txt": {
+   "arcname": "scenario_miu_psp_route01_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "f280d6b51c7e482930c11afb3c8487c3",
+   "length_mismatch": 0,
+   "messages": 238,
+   "missing_plain": 176,
+   "pages": 238,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_06.txt": {
+   "arcname": "scenario_miu_psp_route01_06.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "0101818c1802f99de2f2c0c0fae7c018",
+   "length_mismatch": 0,
+   "messages": 180,
+   "missing_plain": 139,
+   "pages": 180,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_07.txt": {
+   "arcname": "scenario_miu_psp_route01_07.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "a4f51ff77b7f743410d15739e1548f8e",
+   "length_mismatch": 0,
+   "messages": 356,
+   "missing_plain": 259,
+   "pages": 356,
+   "scenes": [
+    "*start",
+    "*dummy1"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_2_01.txt": {
+   "arcname": "scenario_miu_psp_route01_2_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "f7261eb14509881230e96a9446a62053",
+   "length_mismatch": 0,
+   "messages": 376,
+   "missing_plain": 282,
+   "pages": 376,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_2_02.txt": {
+   "arcname": "scenario_miu_psp_route01_2_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "efce95d308d1be3a8533318ad92c0be5",
+   "length_mismatch": 0,
+   "messages": 334,
+   "missing_plain": 250,
+   "pages": 334,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_2_03.txt": {
+   "arcname": "scenario_miu_psp_route01_2_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "a272e07faec23c24d74cc4e6228d2e93",
+   "length_mismatch": 0,
+   "messages": 461,
+   "missing_plain": 334,
+   "pages": 461,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_2_04.txt": {
+   "arcname": "scenario_miu_psp_route01_2_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "a5bdd1825b11aaf137a4be7562a8d636",
+   "length_mismatch": 0,
+   "messages": 274,
+   "missing_plain": 184,
+   "pages": 274,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_2_05.txt": {
+   "arcname": "scenario_miu_psp_route01_2_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "5f84553354b87c538e18cad075b79c0a",
+   "length_mismatch": 0,
+   "messages": 127,
+   "missing_plain": 90,
+   "pages": 127,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_2_06.txt": {
+   "arcname": "scenario_miu_psp_route01_2_06.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "b648e8393de59a5ed3b72fba6bb61989",
+   "length_mismatch": 0,
+   "messages": 203,
+   "missing_plain": 150,
+   "pages": 203,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_2_07.txt": {
+   "arcname": "scenario_miu_psp_route01_2_07.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "b55428ec9b69a68750e1376ade6a2945",
+   "length_mismatch": 0,
+   "messages": 393,
+   "missing_plain": 308,
+   "pages": 393,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_miu_psp_route01_2_08.txt": {
+   "arcname": "scenario_miu_psp_route01_2_08.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "43d381b1b6aa3f91bcba863565000aab",
+   "length_mismatch": 0,
+   "messages": 57,
+   "missing_plain": 40,
+   "pages": 57,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sakuno_route01_10.txt": {
+   "arcname": "scenario_sakuno_route01_10.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "cb2a8848965228a9e6d0f4f7a2ec91fc",
+   "length_mismatch": 0,
+   "messages": 491,
+   "missing_plain": 387,
+   "pages": 491,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route01_01.txt": {
+   "arcname": "scenario_sana_route01_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "35752ee9e44948abeabe72207c57c9fb",
+   "length_mismatch": 0,
+   "messages": 234,
+   "missing_plain": 167,
+   "pages": 234,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route01_02.txt": {
+   "arcname": "scenario_sana_route01_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "82bbc502eb56f39c8968c991e5612c8f",
+   "length_mismatch": 0,
+   "messages": 706,
+   "missing_plain": 457,
+   "pages": 706,
+   "scenes": [
+    "*start",
+    "*days1120"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route01_03.txt": {
+   "arcname": "scenario_sana_route01_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "3f8398e35e0017345aaf7b4d9a3815be",
+   "length_mismatch": 0,
+   "messages": 129,
+   "missing_plain": 91,
+   "pages": 129,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route01_04.txt": {
+   "arcname": "scenario_sana_route01_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "84ac3a26defd661af1a1b6a3a674d725",
+   "length_mismatch": 0,
+   "messages": 357,
+   "missing_plain": 232,
+   "pages": 357,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route02_01.txt": {
+   "arcname": "scenario_sana_route02_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "e1690f28635964a1701173e52402b479",
+   "length_mismatch": 0,
+   "messages": 293,
+   "missing_plain": 192,
+   "pages": 293,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route02_02.txt": {
+   "arcname": "scenario_sana_route02_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "0a36e1d4cc403ad6111199760f94a1fc",
+   "length_mismatch": 0,
+   "messages": 255,
+   "missing_plain": 159,
+   "pages": 255,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route02_03.txt": {
+   "arcname": "scenario_sana_route02_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "35c5bb97038451b586bf07fe558f0d4d",
+   "length_mismatch": 0,
+   "messages": 368,
+   "missing_plain": 200,
+   "pages": 368,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route02_04.txt": {
+   "arcname": "scenario_sana_route02_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "8085febd18048517b941efe63507be1d",
+   "length_mismatch": 0,
+   "messages": 204,
+   "missing_plain": 109,
+   "pages": 204,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route02_05.txt": {
+   "arcname": "scenario_sana_route02_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "321014a9bde41de3f7ebe444adad4d0c",
+   "length_mismatch": 0,
+   "messages": 264,
+   "missing_plain": 170,
+   "pages": 264,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route02_06.txt": {
+   "arcname": "scenario_sana_route02_06.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "18285409139025d4368f95fd736243b4",
+   "length_mismatch": 0,
+   "messages": 180,
+   "missing_plain": 115,
+   "pages": 180,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route03_01.txt": {
+   "arcname": "scenario_sana_route03_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "afe108c311fc9fbdaf424c056670fee1",
+   "length_mismatch": 0,
+   "messages": 286,
+   "missing_plain": 204,
+   "pages": 286,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route03_02.txt": {
+   "arcname": "scenario_sana_route03_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "b4a6c6e3c3a2fbb0fca19a9b54c4d8f5",
+   "length_mismatch": 0,
+   "messages": 190,
+   "missing_plain": 110,
+   "pages": 190,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route03_03.txt": {
+   "arcname": "scenario_sana_route03_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "3bcdddfa39b4c50a9c4910722ee1c8ac",
+   "length_mismatch": 0,
+   "messages": 299,
+   "missing_plain": 185,
+   "pages": 299,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route03_04.txt": {
+   "arcname": "scenario_sana_route03_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "dde41d6526c915eb7852a223e3b7d9d6",
+   "length_mismatch": 0,
+   "messages": 110,
+   "missing_plain": 69,
+   "pages": 110,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route03_05.txt": {
+   "arcname": "scenario_sana_route03_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "05a7a7cb55f9a769031354f9f7ee08df",
+   "length_mismatch": 0,
+   "messages": 262,
+   "missing_plain": 166,
+   "pages": 262,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route03_06.txt": {
+   "arcname": "scenario_sana_route03_06.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "e6111a849724add259193a57dbe34ef3",
+   "length_mismatch": 0,
+   "messages": 303,
+   "missing_plain": 196,
+   "pages": 303,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route04_01.txt": {
+   "arcname": "scenario_sana_route04_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "a38efb3a5589d18ef75424255a4a8022",
+   "length_mismatch": 0,
+   "messages": 221,
+   "missing_plain": 154,
+   "pages": 221,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route04_02.txt": {
+   "arcname": "scenario_sana_route04_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "92a9a27832fb5e0755fc3fe8f9b0c7a9",
+   "length_mismatch": 0,
+   "messages": 417,
+   "missing_plain": 306,
+   "pages": 417,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route04_03.txt": {
+   "arcname": "scenario_sana_route04_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "4722ceb22463c02da5c3c3e51486cf43",
+   "length_mismatch": 0,
+   "messages": 125,
+   "missing_plain": 95,
+   "pages": 125,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route04_04.txt": {
+   "arcname": "scenario_sana_route04_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "dccc0f70a00003c8699e9ed0a06ddbff",
+   "length_mismatch": 0,
+   "messages": 185,
+   "missing_plain": 138,
+   "pages": 185,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route04_05.txt": {
+   "arcname": "scenario_sana_route04_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "3a9f7c2c47d87d543d7b1f03861ec50e",
+   "length_mismatch": 0,
+   "messages": 184,
+   "missing_plain": 138,
+   "pages": 184,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route04_06.txt": {
+   "arcname": "scenario_sana_route04_06.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "b41d63ab6c63d7f34384b59ae42e80ba",
+   "length_mismatch": 0,
+   "messages": 110,
+   "missing_plain": 89,
+   "pages": 110,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route04_07.txt": {
+   "arcname": "scenario_sana_route04_07.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "8901785b4eafc732d72c880ce23bb766",
+   "length_mismatch": 0,
+   "messages": 296,
+   "missing_plain": 234,
+   "pages": 296,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route05_01.txt": {
+   "arcname": "scenario_sana_route05_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "44d5905adbcb1b7ae24542566de0c76e",
+   "length_mismatch": 0,
+   "messages": 134,
+   "missing_plain": 98,
+   "pages": 134,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route05_02.txt": {
+   "arcname": "scenario_sana_route05_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "3d2047e933434b16358236c06f3a6f1d",
+   "length_mismatch": 0,
+   "messages": 112,
+   "missing_plain": 94,
+   "pages": 112,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route05_03.txt": {
+   "arcname": "scenario_sana_route05_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "8f989958e9fda9f7718757a34be6b880",
+   "length_mismatch": 0,
+   "messages": 103,
+   "missing_plain": 78,
+   "pages": 103,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route05_04.txt": {
+   "arcname": "scenario_sana_route05_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "e69296ff78418b78f9542c6eec1c9a28",
+   "length_mismatch": 0,
+   "messages": 151,
+   "missing_plain": 123,
+   "pages": 151,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route05_05.txt": {
+   "arcname": "scenario_sana_route05_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "5d570f63318dfa370eac0c97fdb6eddb",
+   "length_mismatch": 0,
+   "messages": 191,
+   "missing_plain": 150,
+   "pages": 191,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route05_06.txt": {
+   "arcname": "scenario_sana_route05_06.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "13be30c65299327615d46fb8e14fc79b",
+   "length_mismatch": 0,
+   "messages": 116,
+   "missing_plain": 92,
+   "pages": 116,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route05_07.txt": {
+   "arcname": "scenario_sana_route05_07.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "cf761b1d82ab9bb98a2167c6bfc5fec7",
+   "length_mismatch": 0,
+   "messages": 102,
+   "missing_plain": 86,
+   "pages": 102,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route05_08.txt": {
+   "arcname": "scenario_sana_route05_08.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "56a16df14b0f3e090ab380c49b573587",
+   "length_mismatch": 0,
+   "messages": 117,
+   "missing_plain": 81,
+   "pages": 117,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route05_09.txt": {
+   "arcname": "scenario_sana_route05_09.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "bed91272dd4e4564f3726d01d77edb1d",
+   "length_mismatch": 0,
+   "messages": 57,
+   "missing_plain": 49,
+   "pages": 57,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route05_10.txt": {
+   "arcname": "scenario_sana_route05_10.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "57f02343d4fd18266be6a5da0d0652c8",
+   "length_mismatch": 0,
+   "messages": 94,
+   "missing_plain": 67,
+   "pages": 94,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route06_01.txt": {
+   "arcname": "scenario_sana_route06_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "b3d773f6c55373be0c391c20aeab06cf",
+   "length_mismatch": 0,
+   "messages": 101,
+   "missing_plain": 65,
+   "pages": 101,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route06_02.txt": {
+   "arcname": "scenario_sana_route06_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "8f7c56ff6810849aa7c7412005e2a853",
+   "length_mismatch": 0,
+   "messages": 208,
+   "missing_plain": 124,
+   "pages": 208,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route06_03.txt": {
+   "arcname": "scenario_sana_route06_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "0794e574cf6e429de51c0ef708da6af3",
+   "length_mismatch": 0,
+   "messages": 430,
+   "missing_plain": 294,
+   "pages": 430,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route06_04.txt": {
+   "arcname": "scenario_sana_route06_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "8a6e59089014ccf3d39292a4495e6c57",
+   "length_mismatch": 0,
+   "messages": 118,
+   "missing_plain": 70,
+   "pages": 118,
+   "scenes": [
+    "*start",
+    "*dummy1"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route06_05.txt": {
+   "arcname": "scenario_sana_route06_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "e9b092bb1ddc3d877527f72037ebc3be",
+   "length_mismatch": 0,
+   "messages": 92,
+   "missing_plain": 73,
+   "pages": 92,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route06_06.txt": {
+   "arcname": "scenario_sana_route06_06.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "99ac8b847be2bfa651f85343a179cdb3",
+   "length_mismatch": 0,
+   "messages": 96,
+   "missing_plain": 67,
+   "pages": 96,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route06_07.txt": {
+   "arcname": "scenario_sana_route06_07.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "fa67ac8e3297abd0ddd321f9c3b3528e",
+   "length_mismatch": 0,
+   "messages": 100,
+   "missing_plain": 72,
+   "pages": 100,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route06_08.txt": {
+   "arcname": "scenario_sana_route06_08.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "d04d40e7ed233480104a76cd89b95bf6",
+   "length_mismatch": 0,
+   "messages": 168,
+   "missing_plain": 119,
+   "pages": 168,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route06_09.txt": {
+   "arcname": "scenario_sana_route06_09.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "9d607c109f0b19d1feb88beb680cdd56",
+   "length_mismatch": 0,
+   "messages": 110,
+   "missing_plain": 80,
+   "pages": 110,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route06_10.txt": {
+   "arcname": "scenario_sana_route06_10.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "72a61a8b735538fd32fc4550ef237288",
+   "length_mismatch": 0,
+   "messages": 349,
+   "missing_plain": 261,
+   "pages": 349,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route06_11.txt": {
+   "arcname": "scenario_sana_route06_11.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "e7f28c80e75474b69e3e2cbe60d6c83d",
+   "length_mismatch": 0,
+   "messages": 107,
+   "missing_plain": 84,
+   "pages": 107,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route07_01.txt": {
+   "arcname": "scenario_sana_route07_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "a54a31c5411d9b5e80e5f4ac5121d5d2",
+   "length_mismatch": 0,
+   "messages": 112,
+   "missing_plain": 79,
+   "pages": 112,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route07_02.txt": {
+   "arcname": "scenario_sana_route07_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "98d2d228b561bd1c7eb12c799aa8d137",
+   "length_mismatch": 0,
+   "messages": 103,
+   "missing_plain": 72,
+   "pages": 103,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route07_03.txt": {
+   "arcname": "scenario_sana_route07_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "42fdb745dddb1afc2a89dd20f2b068c1",
+   "length_mismatch": 0,
+   "messages": 325,
+   "missing_plain": 195,
+   "pages": 325,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route07_04.txt": {
+   "arcname": "scenario_sana_route07_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "00aa9ccf34dbe64b84fd5e3df8af1998",
+   "length_mismatch": 0,
+   "messages": 44,
+   "missing_plain": 32,
+   "pages": 44,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route07_05.txt": {
+   "arcname": "scenario_sana_route07_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "d96c0c9a235f2b1b2ea4315e0d5a4065",
+   "length_mismatch": 0,
+   "messages": 76,
+   "missing_plain": 55,
+   "pages": 76,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route07_06.txt": {
+   "arcname": "scenario_sana_route07_06.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "5730f765e776f899a4fa93958bc47bce",
+   "length_mismatch": 0,
+   "messages": 131,
+   "missing_plain": 67,
+   "pages": 131,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route07_07.txt": {
+   "arcname": "scenario_sana_route07_07.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "eafcd3c28d2acf446d5714da5d3ef359",
+   "length_mismatch": 0,
+   "messages": 131,
+   "missing_plain": 90,
+   "pages": 131,
+   "scenes": [
+    "*start",
+    "*dummy1"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route07_08.txt": {
+   "arcname": "scenario_sana_route07_08.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "31079366dbade2b425bb975bc549eb56",
+   "length_mismatch": 0,
+   "messages": 164,
+   "missing_plain": 99,
+   "pages": 164,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route07_09.txt": {
+   "arcname": "scenario_sana_route07_09.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "e4d8be93025622155a07d60f75acda3a",
+   "length_mismatch": 0,
+   "messages": 116,
+   "missing_plain": 89,
+   "pages": 116,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route07_10.txt": {
+   "arcname": "scenario_sana_route07_10.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "d472dd64a2a24e9033d4a8dfaf7aa305",
+   "length_mismatch": 0,
+   "messages": 358,
+   "missing_plain": 209,
+   "pages": 358,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route08_01.txt": {
+   "arcname": "scenario_sana_route08_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "63668f702d850cb6bd49767617a55e76",
+   "length_mismatch": 0,
+   "messages": 159,
+   "missing_plain": 115,
+   "pages": 159,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route08_02.txt": {
+   "arcname": "scenario_sana_route08_02.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "a52ea53f2060a4a5444bbbfaef0ddd1a",
+   "length_mismatch": 0,
+   "messages": 263,
+   "missing_plain": 209,
+   "pages": 263,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route08_03.txt": {
+   "arcname": "scenario_sana_route08_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "d688dd38a7094940f3c5cbd4f4c7f0a6",
+   "length_mismatch": 0,
+   "messages": 81,
+   "missing_plain": 63,
+   "pages": 81,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route08_04.txt": {
+   "arcname": "scenario_sana_route08_04.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "7d0de34888ba2a7b2081d580e4a864b9",
+   "length_mismatch": 0,
+   "messages": 73,
+   "missing_plain": 56,
+   "pages": 73,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route08_05.txt": {
+   "arcname": "scenario_sana_route08_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "cfd5fbc4a804e3a2026680084694b424",
+   "length_mismatch": 0,
+   "messages": 111,
+   "missing_plain": 91,
+   "pages": 111,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "scenario_sana_route08_06.txt": {
+   "arcname": "scenario_sana_route08_06.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "abb1931c065a0460c6816830ad71faaf",
+   "length_mismatch": 0,
+   "messages": 228,
+   "missing_plain": 193,
+   "pages": 228,
+   "scenes": [
+    "*start",
+    "*dummy1"
+   ],
+   "selects": 0
+  },
+  "seアフター_01.txt": {
+   "arcname": "seアフター_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "4c94011d0c10ed7a65ace4959a953600",
+   "length_mismatch": 0,
+   "messages": 378,
+   "missing_plain": 241,
+   "pages": 378,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "seアフター_02（Ｈ３）.txt": {
+   "arcname": "seアフター_02（Ｈ３）.txt.scn",
+   "container": "mashiro_sana_cn2.xp3",
+   "domain": "",
+   "hash": "dff22694856fd1d5d58f4e88d53c9073",
+   "length_mismatch": 0,
+   "messages": 522,
+   "missing_plain": 221,
+   "pages": 522,
+   "scenes": [
+    "*start",
+    "*replay_sana_03"
+   ],
+   "selects": 0
+  },
+  "seアフター_03.txt": {
+   "arcname": "seアフター_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "8e326c722521c4b4854d3f3a834c10f5",
+   "length_mismatch": 0,
+   "messages": 185,
+   "missing_plain": 130,
+   "pages": 185,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "年明け２月０９日（火）_01.txt": {
+   "arcname": "年明け２月０９日（火）_01.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "660ee149fe1ac766975ed5c1468baf46",
+   "length_mismatch": 0,
+   "messages": 309,
+   "missing_plain": 158,
+   "pages": 309,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "年明け２月１４日（日）_04（Ｈ２）.txt": {
+   "arcname": "年明け２月１４日（日）_04（Ｈ２）.txt.scn",
+   "container": "mashiro_sana_cn2.xp3",
+   "domain": "",
+   "hash": "337d50bbfd35c11e49378806513dd4d3",
+   "length_mismatch": 0,
+   "messages": 474,
+   "missing_plain": 178,
+   "pages": 474,
+   "scenes": [
+    "*start",
+    "*replay_sana_02"
+   ],
+   "selects": 0
+  },
+  "年明け２月１４日（日）_05.txt": {
+   "arcname": "年明け２月１４日（日）_05.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "e1cddb4a3176cf1a8d28dd9fcdd9e159",
+   "length_mismatch": 0,
+   "messages": 87,
+   "missing_plain": 47,
+   "pages": 87,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  },
+  "１２月２４日（木）_02（Ｈ１）.txt": {
+   "arcname": "１２月２４日（木）_02（Ｈ１）.txt.scn",
+   "container": "mashiro_sana_cn2.xp3",
+   "domain": "",
+   "hash": "610a05ce8e86014f68e4b488ee05760a",
+   "length_mismatch": 0,
+   "messages": 587,
+   "missing_plain": 227,
+   "pages": 587,
+   "scenes": [
+    "*start",
+    "*replay_sana_01"
+   ],
+   "selects": 0
+  },
+  "１２月２４日（木）_03.txt": {
+   "arcname": "１２月２４日（木）_03.txt.scn",
+   "container": "mashiro_sana_chs.xp3",
+   "domain": "",
+   "hash": "cc124883f4f3f887d2e9ec82109f12c0",
+   "length_mismatch": 0,
+   "messages": 84,
+   "missing_plain": 43,
+   "pages": 84,
+   "scenes": [
+    "*start"
+   ],
+   "selects": 0
+  }
+ },
+ "totals": {
+  "messages": 28254,
+  "pages": 28254,
+  "scripts": 118,
+  "selects": 11
+ }
+}
