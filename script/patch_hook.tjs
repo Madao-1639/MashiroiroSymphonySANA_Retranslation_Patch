@@ -1,27 +1,41 @@
-
 // ===== retranslation patch hook (appended) =====
-// Adds exactly one search path after the boot sequence finished:
+// Adds exactly one search path once the boot sequence has finished:
 //     CN.xp3>cn/scn/     (same shape as Initialize.tjs's own patch.xp3>cn/scn/)
 // Because it is registered last it has the highest priority, so the retranslated
 // scripts under cn/scn/ win over patch.xp3.  Only names inside cn/scn/ are affected;
 // nothing else (config, save data, other assets) is touched.  Uninstall = delete CN.xp3.
+//
+// Timing (see doc/engine-mechanics.md §3.4.1).  autopath priority == registration order,
+// and initialize.tjs registers data.xp3><lang>/scn/ + patch.xp3><lang>/scn/ *during* the
+// boot chain while continuous handlers are already being ticked.  Everything that only
+// *guesses* "the boot chain has finished" therefore races with the language block:
+//   - a frame-count countdown fired at tick 300 won and at tick 1 lost (pure luck);
+//   - "kag.EzSave exists" is provably too early: initialize.tjs assigns it *before*
+//     KAGLoadScript("default.tjs"), kag.process("first.ks") and the whole language block,
+//     and registering on that condition measured as *not* taking effect.
+// So there is exactly ONE injection point: SystemHook's "first.init", raised by first.ks
+// after every addAutoPath of initialize.tjs has run.  system.tjs defines SystemHook and
+// override.tjs runs it before loading default.tjs (this hook's carrier), so it is always
+// available in practice.  If it ever is not, we do nothing at all: a hook that silently
+// registers at a wrong moment is worse than no hook, because it produces an intermittent
+// "sometimes it works" that hides the real fault.  Fail closed = official text stays.
 {
 	if (typeof global.__rtHooked == "undefined") {
 		global.__rtHooked = 1;
-		global.__rtN = 0;
-		global.__rtReady = 0;
-		global.__rtTick = function () {
-			if (global.__rtReady == 1) return;
-			global.__rtN = (global.__rtN|0) + 1;
+		global.__rtUrl = System.exePath + "CN.xp3>cn/scn/";
+		global.__rtInstall = function () {
+			// Traditional Chinese (TC) / English (JP face) keep the official text
 			var face = "";
 			try { if (typeof global.MessageDefaultFontFace == "string") face = global.MessageDefaultFontFace; } catch (e) { }
-			if (face == "" && (global.__rtN|0) < 300) return;
-			global.__rtReady = 1;
-			// Traditional Chinese (TC) / English (JP face) keep the official text
-			if (face == "" || face.indexOf("SC") >= 0) {
-				try { Storages.addAutoPath(System.exePath + "CN.xp3>cn/scn/"); } catch (e) { }
-			}
+			if (face != "" && face.indexOf("SC") < 0) return;
+			try { Storages.addAutoPath(global.__rtUrl); } catch (e) { }
 		};
-		try { System.addContinuousHandler(global.__rtTick); } catch (e) { }
+		try {
+			SystemHook.add("first.init", global.__rtInstall, -1000);
+			global.__rtAnchored = 1;
+		} catch (e) {
+			// No reliable injection point available: keep the official text, change nothing.
+			global.__rtAnchored = 0;
+		}
 	}
 }

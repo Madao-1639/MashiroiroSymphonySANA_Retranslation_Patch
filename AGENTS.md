@@ -35,7 +35,7 @@
 | 字体 | Steam 自带官方简中，字体链已就绪；民汉的字体替换不纳入本补丁 |
 | 文本产物布局 | **一脚本一文件**：`resource/<set>/scripts/<script>.jsonl`、`resource/match/pairs/<script>.jsonl`（读写统一走 `tool/textset.py`） |
 | 回写 | `script/writeback.py`：字符串槽与页 `length` 均**原位改字节**，无需完整序列化器；闸 = 零改动往返 + 单串扰动 + 槽位自检 |
-| 补丁形式 | **单文件 `releases/CN.xp3`**（3.1 MB）：根域 `default.tjs`（本作原文 + 钩子）在启动末尾注册 `CN.xp3>cn/scn/` ⇒ 最高优先级；脚本存 `cn/scn/` 域。卸载 = 删文件 |
+| 补丁形式 | **单文件 `releases/CN.xp3`**（3.09 MB）：根域 `default.tjs`（本作原文 + 钩子）在启动流程结束后注册 `CN.xp3>cn/scn/` ⇒ 最高优先级；脚本存 `cn/scn/` 域。卸载 = 删文件 |
 
 ## 工程约定
 

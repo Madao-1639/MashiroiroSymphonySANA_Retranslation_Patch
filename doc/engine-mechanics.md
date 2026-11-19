@@ -103,7 +103,7 @@ exe
 
 1. `CN` 在 subfolders 清单里 ⇒ 存在 `<exePath>CN.xp3` 时引擎会自己注册 `CN.xp3>`（早于 `patch.xp3>`）。
 2. 在 `CN.xp3` **根域**放一份 `main/default.tjs`（官方原文 + 追加钩子）。该文件在 `patch.xp3`/`patch2.xp3` 里**不存在**，而 `CN.xp3>` 比 `data.xp3` 新 ⇒ 稳定命中我们的副本；官方内容逐字节保留，只追加；早、晚两次加载都等价于原版行为（晚那次走 `cn/main/default.tjs`，不受影响）。
-3. 钩子用 `System.addContinuousHandler` 等启动走完（`MessageDefaultFontFace` 有值，兜底 300 帧），再 `Storages.addAutoPath(System.exePath + "CN.xp3>cn/scn/")` —— **整条注册链的最后一次** ⇒ 最高优先级。
+3. 钩子挂在 `SystemHook` 的 `first.init` 上（`first.ks` 的 `[syshook name="first.init"]`）：它是 `initialize.tjs` 全部 `addAutoPath` 之后的确切锚点，在那里执行 `Storages.addAutoPath(System.exePath + "CN.xp3>cn/scn/")` 才是**整条注册链的最后一次** ⇒ 最高优先级。这是**唯一**的注入点，不可用时不注册任何路径（fail-closed，保持官方文本）。注册时机必须由启动链的语义事件确定，理由见 [lessons-learned.md](lessons-learned.md) §22。
 4. 脚本存 `cn/scn/` 域（等价于官方的 `patch.xp3>cn/scn/` 布局），只影响 `cn/scn/` 命名空间：配置、存档、其它资源都不经过我们的包（存档是 `saveDataLocation/<name><tag>.ksd` 绝对路径）。
 5. 卸载 = 删除 `CN.xp3`；游戏目录内没有其它改动。
 
@@ -115,14 +115,14 @@ exe
 |---|---|---|
 | 钩子载体基座 | `data.xp3` 的 `main/default.tjs`（25,548 B） | `data.xp3` 的 `main/default.tjs`（**25,398 B**，与 FHD 差 5 行：`System.title`、语言/标题串）；必须用本作的，不得照拄 FHD 的 |
 | 警告占位 entry 0 | 直接从 `data_fhd.xp3` 照抄（有映射记录） | `data.xp3` 的 entry 0 **没有映射记录**（`_bind_records` 的 offset=1 分支），打包时要自己造一条 record，并直接读 `File` 块的 `info`/`segm` 字段（payload 157 B，`fsize=910`，`seg_flags=0`） |
-| 优先级前途 | 官方链顶端 `patch.xp3>cn/scn/` 永命中 | 官方 `patch.xp3` **真实存在**（1.10 GB，102 条脚本）⇒ 钩子必须确认注册时间晚于它；启动后追加的 `CN.xp3>cn/scn/` 满足这一条件 |
+| 优先级前途 | 官方链顶端 `patch.xp3>cn/scn/` 永命中 | 官方 `patch.xp3` **真实存在**（1.10 GB，102 条脚本）⇒ 钩子必须在它之后注册；`SystemHook` 的 `first.init` 满足这一条件。该注入点不可用时不注册（fail-closed，保持官方文本） |
 
 另：本作脚本集必须按 **`data.xp3` + `patch.xp3` 两个归档**计算（后者覆盖同名脚本并补齐 62 条），只看 `data.xp3` 会得到残缺的 40 脚本集。
 
-**已实现**（`script/pack_patch.py`，产物 `releases/CN.xp3` 3.1 MB）：
+**已实现**（`script/pack_patch.py`，产物 `releases/CN.xp3` 3.09 MB）：
 
 - 条目 0 = 从官方 `patch.xp3` 的 entry 0 照抄的警告占位（157 B，`fsize=910`，`seg_flags=0`，带映射记录）；
-- 条目 1 = 根域 `default.tjs`，payload = `b"ÿþ"` + 本作 `main/default.tjs` 文本 + `script/patch_hook.tjs`（27,780 B）；
+- 条目 1 = 根域 `default.tjs`，payload = `b"ÿþ"` + 本作 `main/default.tjs` 文本 + `script/patch_hook.tjs`（30,226 B）；
 - 条目 2..103 = `cn/scn/` 域的 102 个脚本，条目名哈希逐条断言；
 - 回读校验：payload 逐字节一致、adler 全通过、页数与索引一致（`pack_patch.py verify`），另有独立闸 `script/verify_patch.py` 从 `resource/` 重建期望逐页比对（23,238/23,245 一致，余 7 页为原位改写的硬限，见 `doc/version-diff.md` §8）。
 

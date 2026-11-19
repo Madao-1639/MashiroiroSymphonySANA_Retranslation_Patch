@@ -10,9 +10,13 @@
     永远优先命中 patch.xp3。
   * 破解办法：`CN.xp3` 根域放一份 `main/default.tjs`（官方原文 + 追加钩子）。该文件
     patch.xp3 / patch2.xp3 里都不存在，而 `CN.xp3` 又比 `data.xp3` 注册得晚，
-    所以稳定命中我们的副本；钩子装一个连续处理器，等启动流程结束后再
-    `addAutoPath(exePath + "CN.xp3>cn/scn/")` —— 这是整条注册链的最后一次，
-    因此优先级最高，且只影响 `cn/scn/` 命名空间（不触碰配置、存档、其它资源）。
+    所以稳定命中我们的副本。
+  * 钩子挂在 `SystemHook` 的 `first.init` 上（`first.ks` 的 `[syshook name="first.init"]`），
+    它确定在 `initialize.tjs` 最后一个 `addAutoPath` 之后触发，因此那里的
+    `addAutoPath(exePath + "CN.xp3>cn/scn/")` 是整条注册链的最后一次 ⇒ 优先级最高，
+    且只影响 `cn/scn/` 命名空间（不触碰配置、存档、其它资源）。
+    **不要改回「连续处理器 + 帧数兜底」**：语言段的 autopath 在启动链执行中注册，
+    帧数兜底会与之竞态，实测 tick 300 生效、tick 1 失效。详见 doc/engine-mechanics.md §3.4.1。
 
 产物：releases/CN.xp3
 卸载：删除该文件即可，游戏目录内没有其它改动。

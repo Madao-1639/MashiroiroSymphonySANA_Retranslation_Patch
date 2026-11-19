@@ -117,7 +117,7 @@ Steam 的 102 个脚本 = 共通线 `scenario_01..19`（19）+ PSP 追加美羽�
 script/writeback.py fetch        # 102 脚本 -> tmp/zhcn_psb（data.xp3 40 + patch.xp3 102，后者胜）
 script/writeback.py roundtrip    # 闸：102/102 零改动往返逐字节一致；民汉侧 118/118 ok
 script/writeback.py apply        # -> tmp/out_zhcn + tmp/_report_apply.json
-script/pack_patch.py             # -> releases/CN.xp3（Hxv4，3.1 MB，自校验）
+script/pack_patch.py             # -> releases/CN.xp3（Hxv4，3.09 MB，自校验）
 script/verify_patch.py           # 独立闸：从 resource/ 重建期望，逐页比对产物
 ```
 
@@ -140,7 +140,7 @@ script/verify_patch.py           # 独立闸：从 resource/ 重建期望，逐�
 
 这两类限制与姊妹项目同类（那边 13 + 3 页），根因是"文本引用与页数组都是定宽内联字段"，要彻底解决必须写完整对象图序列化器，收益（7 页）与风险不成比例，故接受。
 
-产物：`releases/CN.xp3` = 1 个警告占位 + 1 个钩子（根域 `default.tjs`，27,780 B = 本作原文 25,398 B + 钩子）+ 102 个脚本，共 3.1 MB。回读校验：条目名哈希 102/102、payload 逐字节一致、adler 全通过。
+产物：`releases/CN.xp3` = 1 个警告占位 + 1 个钩子（根域 `default.tjs`，30,226 B = 本作原文 25,398 B + 钩子）+ 102 个脚本，共 3.09 MB。回读校验：条目名哈希 102/102、payload 逐字节一致、adler 全通过。
 **实机**：简中下剧情为民汉译文；语音对应、存档读写、删包回退的判据见 `doc/acceptance-criteria.md` §4。
 
 **可复跑性**：清空 `tmp/` 后重跑 `fetch → apply → pack_patch → verify_patch` 全程 **84 秒**，产物 md5 与首次完全一致（`4e792bd3034837b6ae8c6b676457e223`）。改文本只需改 `resource/chs_text/` 后重跑后两步。
